@@ -1,6 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../public/fonts/orbitron/Orbitron-VariableFont_wght.ttf'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
 * {
     margin: 0px;
+}
+
+.orbitron {
+    font-family: 'Orbitron', sans-serif;
 }

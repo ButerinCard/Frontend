@@ -5,7 +5,16 @@ module.exports = {
         "./components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'orbitron' : ["'Orbitron'", "sans-serif"], 
+                'libre' : ["'Libre Baskerville'", 'serif']
+            }, 
+            colors:{
+                primaryYellow: '#FCD265', 
+            }
+        },
+       
     },
     plugins: [],
 }
