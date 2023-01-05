@@ -12,7 +12,13 @@
 * {
     margin: 0px;
 }
-
+.rotated {
+    transform: rotate3d(0, 1, 0, 90deg);
+    background-color: pink;
+}
+.rotate-y {
+    transform: rotateY(180deg); 
+}
 .orbitron {
     font-family: 'Orbitron', sans-serif;
 }

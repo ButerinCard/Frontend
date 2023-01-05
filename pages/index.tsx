@@ -1,27 +1,41 @@
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import proto from '../public/images/Proto.png';
 import deck from '../public/images/deck.png'
 import Navbar from '../components/Navbar';
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
-const inter = Inter({ subsets: ['latin'] })
+import MintButton from '../components/Landing/MintButton';
+import ButerinCard from '../components/Landing/ButerinCard';
+import card2 from '../public/images/backOfCard.png';
+import proto from '../public/images/Proto.png';
+import card from '../public/images/Card.png'
 
+import { useState } from 'react';
 export default function Home() {
+  const [i, setI] = useState(1);
+  const [goingFoward, setGoingFoward] = useState(false);
 
+
+  let cards = [card2, proto, card];
+  function goBack() {
+    if(i >= cards.length - 1 ) 
+      return; 
+    let inc = i + 1;
+    setGoingFoward(false);
+    setI(inc);
+  }
+
+  function goFoward() {
+    console.log(i); 
+    if(i < 2)
+      return; 
+    let inc = i - 1;
+    setGoingFoward(true);
+    setI(inc);
+  }
 
   return (
     <>
       <Navbar></Navbar>
       <main className='w-screen h-screen relative bg-black' style={{ background: '#e3dbcb' }} >
-
-        <div className="absolute z-20 bottom-0 w-full flex justify-center">
-          <div className='flex justify-center mb-20'>
-            <div className='mt-20 bg-primaryYellow px-20 drop-shadow-lg cursor-pointer py-3 font-orbitron font-semibold text-2xl rounded-md'   >
-              <h1>MINT</h1>
-            </div>
-          </div>
-        </div>
-
+        <MintButton />
         <div className='z-0 absolute px-20 h-screen w-screen grid grid-cols-3 items-center justify-center'>
           <div className='flex justify-center'>
             <div className='flex flex-col items-center'>
@@ -29,21 +43,12 @@ export default function Home() {
               <Image className='w-64' src={deck} alt={''}></Image>
             </div>
           </div>
-          <div className='flex justify-center'>
-            <div className='relative'>
-              <Image className='w-80' src={proto} alt={''}></Image>
-              <div className="absolute w-full flex -bottom-9">
-                <div className='w-6 h-6 bg-white flex justify-center items-center rounded-full cursor-pointer mr-2'>
-                  <BiLeftArrowAlt size={20} />
-                </div>
-                <div className='w-6 h-6 bg-white flex justify-center items-center rounded-full cursor-pointer'>
-                  <BiRightArrowAlt size={20} />
-                </div>
+          {cards.map((e, index, arr) => {
+            if (i === index) {
+              return <ButerinCard key={e.src} prevImg={!goingFoward ? cards[i-1] : cards[i+1]} currentImg={cards[i]} dontFlip={false} goBack={goBack} goFoward={goFoward} direction={!goingFoward}></ButerinCard>
+            }
+          })}
 
-              </div>
-            </div>
-
-          </div>
 
           <div className='flex justify-center'>
             <div>
