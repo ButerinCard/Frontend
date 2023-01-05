@@ -9,7 +9,7 @@ export default function Deck() {
     const [load, setLoad] = useState(false); 
     useEffect(() => {
         if(!load) {
-            setTimeout(() => {setHover(false)}, 300); 
+            setTimeout(() => {setHover(false)}, 200); 
             setLoad(false)
         }
     }, [load])

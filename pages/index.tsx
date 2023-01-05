@@ -18,7 +18,7 @@ export default function Home() {
     if(!load) {
       setTimeout(() => {
         setLoad(true)
-      }, 200); 
+      }, 700); 
     }
   }, [load])
   let cards = [card2, proto, card];
