@@ -12,7 +12,13 @@ module.exports = {
             }, 
             colors:{
                 primaryYellow: '#FCD265', 
-            }
+            }, 
+            transitionDelay: {
+                '30' : '30ms', 
+                '60' : '60ms', 
+                '90' : '90ms', 
+                
+              }
         },
        
     },

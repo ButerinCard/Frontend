@@ -8,6 +8,7 @@ import proto from '../public/images/Proto.png';
 import card from '../public/images/Card.png'
 
 import { useState } from 'react';
+import Deck from '../components/Landing/Deck';
 export default function Home() {
   const [i, setI] = useState(1);
   const [goingFoward, setGoingFoward] = useState(false);
@@ -30,7 +31,7 @@ export default function Home() {
     setI(inc);
   }
 
-  const directFuncs = {goBack, goFoward}
+  const directFuncs = { goBack, goFoward }
 
   return (
     <>
@@ -38,16 +39,15 @@ export default function Home() {
       <main className='w-screen h-screen relative bg-black' style={{ background: '#e3dbcb' }} >
         <MintButton />
         <div className='z-0 absolute px-20 h-screen w-screen grid grid-cols-3 items-center justify-center'>
-          <div className='flex justify-center'>
-            <div className='flex flex-col items-center'>
-              <h1 className='text-center font-orbitron mb-2 font-semibold'>651 Left</h1>
-              <Image className='w-64' src={deck} alt={''}></Image>
-            </div>
-          </div>
+          <Deck />
           {cards.map((e, index, arr) => {
             if (i === index) {
-              return <ButerinCard key={e.src} prevImg={!goingFoward ? cards[i - 1] : cards[i + 1]}
-                currentImg={cards[i]} {...directFuncs}></ButerinCard>
+              return <ButerinCard
+                key={e.src}
+                prevImg={!goingFoward ? cards[i - 1] : cards[i + 1]}
+                currentImg={cards[i]}
+                {...directFuncs}
+              />
             }
           })}
 
