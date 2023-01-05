@@ -7,11 +7,20 @@ import card2 from '../public/images/backOfCard.png';
 import proto from '../public/images/Proto.png';
 import card from '../public/images/Card.png'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Deck from '../components/Landing/Deck';
 export default function Home() {
   const [i, setI] = useState(1);
   const [goingFoward, setGoingFoward] = useState(false);
+  const [load, setLoad] = useState(false); 
+
+  useEffect(() => {
+    if(!load) {
+      setTimeout(() => {
+        setLoad(true)
+      }, 200); 
+    }
+  }, [load])
   let cards = [card2, proto, card];
 
   function goBack() {
@@ -31,7 +40,7 @@ export default function Home() {
     setI(inc);
   }
 
-  const directFuncs = { goBack, goFoward }
+  const cardProps = { goBack, goFoward, load }
 
   return (
     <>
@@ -43,10 +52,11 @@ export default function Home() {
           {cards.map((e, index, arr) => {
             if (i === index) {
               return <ButerinCard
+                
                 key={e.src}
                 prevImg={!goingFoward ? cards[i - 1] : cards[i + 1]}
                 currentImg={cards[i]}
-                {...directFuncs}
+                {...cardProps}
               />
             }
           })}
