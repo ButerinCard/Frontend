@@ -21,9 +21,9 @@ export default function ButerinCard({ prevImg, currentImg, goBack, goFoward, }: 
     }
     return (
         <div className='flex justify-center'>
-            <div className='relative'>
+            <div className='relative hover:-translate-y-1 transition-transform'>
 
-                <div className={`transition-all ease-linear duration-300  ${flip ? 'rotate-y ' : ''}`}>
+                <div className={`transition-all  ease-linear duration-300  ${flip ? 'rotate-y ' : ''}`}>
                     {/* Top of Deck */}
                     <Image loading={'eager'} className={`w-80 ${flip2 ? 'opacity-0' : ''}`} src={prevImg} alt={''}></Image>
                     {/* Second Card */}
