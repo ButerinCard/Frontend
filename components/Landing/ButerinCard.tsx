@@ -5,18 +5,16 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
 interface Props {
     prevImg: StaticImageData,
     currentImg: StaticImageData,
-    dontFlip: boolean,
     goBack: () => void;
     goFoward: () => void;
-    direction: boolean;
 }
 
-export default function ButerinCard({ prevImg, currentImg, dontFlip, goBack, goFoward, direction }: Props) {
+export default function ButerinCard({ prevImg, currentImg, goBack, goFoward, }: Props) {
     const [flip, setFlip] = useState(false);
     const [flip2, setFlip2] = useState(false);
     useEffect(() => {
         startFlip()
-    }, [dontFlip, prevImg])
+    }, [prevImg])
     function startFlip() {
         setFlip(true);
         setTimeout(() => { setFlip2(true); }, 150);
@@ -27,9 +25,9 @@ export default function ButerinCard({ prevImg, currentImg, dontFlip, goBack, goF
 
                 <div className={`transition-all ease-linear duration-300  ${flip ? 'rotate-y ' : ''}`}>
                     {/* Top of Deck */}
-                    <Image className={`w-80 ${flip2 ? 'opacity-0' : ''}`} src={prevImg} alt={''}></Image>
+                    <Image loading={'eager'} className={`w-80 ${flip2 ? 'opacity-0' : ''}`} src={prevImg} alt={''}></Image>
                     {/* Second Card */}
-                    <Image className={`w-80 absolute top-0 left-0 z-30 ${flip2 ? 'rotate-y' : 'hidden'}`} src={currentImg} alt={''}></Image>
+                    <Image loading={'eager'} className={`w-80 absolute top-0 left-0 z-30 ${flip2 ? 'rotate-y' : 'hidden'}`} src={currentImg} alt={''}></Image>
                 </div>
 
                 <div className="absolute w-full flex -bottom-9">

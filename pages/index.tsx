@@ -11,25 +11,26 @@ import { useState } from 'react';
 export default function Home() {
   const [i, setI] = useState(1);
   const [goingFoward, setGoingFoward] = useState(false);
-
-
   let cards = [card2, proto, card];
+
   function goBack() {
-    if(i >= cards.length - 1 ) 
-      return; 
+    if (i >= cards.length - 1)
+      return;
     let inc = i + 1;
     setGoingFoward(false);
     setI(inc);
   }
 
   function goFoward() {
-    console.log(i); 
-    if(i < 2)
-      return; 
+    console.log(i);
+    if (i < 2)
+      return;
     let inc = i - 1;
     setGoingFoward(true);
     setI(inc);
   }
+
+  const directFuncs = {goBack, goFoward}
 
   return (
     <>
@@ -45,7 +46,8 @@ export default function Home() {
           </div>
           {cards.map((e, index, arr) => {
             if (i === index) {
-              return <ButerinCard key={e.src} prevImg={!goingFoward ? cards[i-1] : cards[i+1]} currentImg={cards[i]} dontFlip={false} goBack={goBack} goFoward={goFoward} direction={!goingFoward}></ButerinCard>
+              return <ButerinCard key={e.src} prevImg={!goingFoward ? cards[i - 1] : cards[i + 1]}
+                currentImg={cards[i]} {...directFuncs}></ButerinCard>
             }
           })}
 
