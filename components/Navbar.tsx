@@ -19,7 +19,7 @@ export default function Navbar() {
       </div> */}
 
       <div className="w-full bg-black h-20 flex justify-center items-center" style={{ background: '#3b2b20' }}>
-        <h1 className='font-orbitron text-center sm:text-left text-white lg:text-2xl 2xl:text-4xl' >a homage to Vitalik : Help us upload the largest JPEG on-chain</h1>
+        <h1 className='font-orbitron text-center sm:text-left text-white text-sm lg:text-2xl 2xl:text-4xl px-4' >a homage to Vitalik : Help us upload the largest JPEG on-chain</h1>
       </div>
     </div>
   )

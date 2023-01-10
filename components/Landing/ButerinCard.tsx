@@ -41,7 +41,7 @@ export default function ButerinCard({ prevImg, currentImg, goBack, goFoward, loa
                     <div onClick={goFoward} className={`w-6 h-6 bg-white ${!flip ? 'bg-opacity-50 cursor-default' : ''} flex justify-center items-center rounded-full cursor-pointer`}>
                         <BiRightArrowAlt size={20} />
                     </div>
-                    <div className='ml-2 font-orbitron font-semibold text-sm'>
+                    <div className='ml-2 font-orbitron font-semibold text-xs lg:text-sm'>
                         <h1 >Minted January 02, 2023</h1>
                         <h1>Contributor 0x4343...</h1>
                     </div>
