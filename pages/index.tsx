@@ -47,9 +47,9 @@ export default function Home() {
   return (
     <div className='overflow-x-hidden' style={{ background: '#e3dbcb' }}>
       <Navbar></Navbar>
-      <main className='w-screen h-screen relative '  >
-        <div className='absolute w-screen h-screen top-0 left-0 overflow-hidden'>
-          <Image src={Graphic} className='opacity-10 h-screen ' alt=''></Image>
+      <main className='w-screen h-screen relative' style={{minHeight:'800px'}}>
+        <div className='absolute w-screen h-full top-0 left-0'>
+          <Image src={Graphic} className='opacity-10 h-full ' alt=''></Image>
         </div>
         <MintButton />
         <div className='z-0 absolute lg:px-12 xl:px-20 h-screen w-screen grid lg:grid-cols-3 items-center justify-center'>
@@ -70,7 +70,7 @@ export default function Home() {
           <div className='flex justify-center'>
             <div>
               <h1 className='text-center font-orbitron font-semibold mb-3 select-none'>TOP MINERS</h1>
-              <div className=' py-1 px-4 rounded-md  md:w-96 md:h-96' style={{ background: '#ebe4d8'}}>
+              <div className=' py-1 px-4 rounded-md md:w-80 md:h-80  xl:w-96 xl:h-96' style={{ background: '#ebe4d8'}}>
                 <LeaderBoardEntry />
                 <LeaderBoardEntry />
                 <LeaderBoardEntry />
