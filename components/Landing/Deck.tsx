@@ -15,7 +15,7 @@ export default function Deck() {
     }, [load])
     
     return (
-        <div className='hidden justify-center lg:flex ' >
+        <div className='hidden justify-center lg:flex select-none' >
             <div className='flex flex-col items-center' >
                 <h1 className='text-center font-orbitron mb-1 font-semibold'>651 Left</h1>
                 <div className='relative z-30 ease-in' onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>

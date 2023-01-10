@@ -47,11 +47,11 @@ export default function Home() {
   return (
     <div className='overflow-x-hidden' style={{ background: '#e3dbcb' }}>
       <Navbar></Navbar>
-      <main className='w-screen h-screen relative' style={{minHeight:'800px'}}>
+      <main className='w-screen h-screen relative overflow-y-auto overflow-x-hidden' style={{minHeight:'850px'}}>
         <div className='absolute w-screen h-full top-0 left-0'>
           <Image src={Graphic} className='opacity-10 h-full ' alt=''></Image>
         </div>
-        <MintButton />
+       
         <div className='z-0 absolute lg:px-12 xl:px-20 h-screen w-screen grid lg:grid-cols-3 items-center justify-center'>
           <Deck />
           {cards.map((e, index, arr) => {

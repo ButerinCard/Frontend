@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
+import MintButton from './MintButton';
 
 interface Props {
     prevImg: StaticImageData,
@@ -25,11 +26,11 @@ export default function ButerinCard({ prevImg, currentImg, goBack, goFoward, loa
         <div className='flex justify-center mt-24 mb-20'>
             <div className='relative'>
                 <div className='hover:-translate-y-1 transition-transform'>
-                    <div className={`transition-all  ease-linear duration-300 ${flip ? 'rotate-y ' : ''}`}>
+                    <div className={`transition-all  ease-linear duration-300 select-none ${flip ? 'rotate-y ' : ''}`}>
                         {/* Top of Deck */}
-                        <Image loading={'eager'} className={`w-56 lg:w-64 xl:w-72 2xl:w-80 ${flip2 ? 'opacity-0' : ''}`} src={prevImg} alt={''}></Image>
+                        <Image loading={'eager'} className={`w-56 lg:w-64 xl:w-72 2xl:w-96 ${flip2 ? 'opacity-0' : ''}`} src={prevImg} alt={''}></Image>
                         {/* Second Card */}
-                        <Image loading={'eager'} className={`w-56 lg:w-64 xl:w-72 2xl:w-80 absolute top-0 left-0 z-30 ${flip2 ? 'rotate-y' : 'hidden'}`} src={currentImg} alt={''}></Image>
+                        <Image loading={'eager'} className={`w-56 lg:w-64 xl:w-72 2xl:w-96 absolute top-0 left-0 z-30 ${flip2 ? 'rotate-y' : 'hidden'}`} src={currentImg} alt={''}></Image>
                     </div>
                 </div>
 
@@ -41,9 +42,12 @@ export default function ButerinCard({ prevImg, currentImg, goBack, goFoward, loa
                     <div onClick={goFoward} className={`w-6 h-6 bg-white ${!flip ? 'bg-opacity-50 cursor-default' : ''} flex justify-center items-center rounded-full cursor-pointer`}>
                         <BiRightArrowAlt size={20} />
                     </div>
-                    <div className='ml-2 font-orbitron font-semibold text-xs lg:text-sm'>
-                        <h1 >Minted January 02, 2023</h1>
-                        <h1>Contributor 0x4343...</h1>
+                    <div>
+                        <div className='ml-2 font-orbitron font-semibold text-xs lg:text-sm select-none'>
+                            <h1 >Minted January 02, 2023</h1>
+                            <h1>Contributor 0x4343...</h1>
+                        </div>
+                        <MintButton />
                     </div>
 
                 </div>
