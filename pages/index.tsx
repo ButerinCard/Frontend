@@ -70,7 +70,7 @@ export default function Home() {
           <div className='flex justify-center'>
             <div>
               <h1 className='text-center font-orbitron font-semibold mb-3 select-none'>TOP MINERS</h1>
-              <div className=' py-1 px-4 rounded-md md:w-80 md:h-80  xl:w-96 xl:h-96' style={{ background: '#ebe4d8'}}>
+              <div className=' py-1 px-4 rounded-md md:w-60 md:h-80  xl:w-96 xl:h-96' style={{ background: '#ebe4d8'}}>
                 <LeaderBoardEntry />
                 <LeaderBoardEntry />
                 <LeaderBoardEntry />
