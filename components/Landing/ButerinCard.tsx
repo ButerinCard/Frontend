@@ -35,20 +35,25 @@ export default function ButerinCard({ prevImg, currentImg, goBack, goFoward, loa
                 </div>
 
 
-                <div className="absolute w-full flex mt-2">
-                    <div onClick={goBack} className='w-6 h-6 bg-white flex justify-center items-center rounded-full cursor-pointer mr-2'>
-                        <BiLeftArrowAlt size={20} />
-                    </div>
-                    <div onClick={goFoward} className={`w-6 h-6 bg-white ${!flip ? 'bg-opacity-50 cursor-default' : ''} flex justify-center items-center rounded-full cursor-pointer`}>
-                        <BiRightArrowAlt size={20} />
-                    </div>
-                    <div>
-                        <div className='ml-2 font-orbitron font-semibold text-xs lg:text-sm select-none'>
-                            <h1 >Minted January 02, 2023</h1>
-                            <h1>Contributor 0x4343...</h1>
+                <div className="absolute w-full mt-2">
+                    <div className="flex">
+                        <div onClick={goBack} className='w-7 h-7 bg-white flex justify-center items-center rounded-full cursor-pointer mr-2'>
+                            <BiLeftArrowAlt size={25} />
                         </div>
-                        <MintButton />
+                        <div onClick={goFoward} className={`w-7 h-7 bg-white ${!flip ? 'bg-opacity-50 cursor-default' : ''} flex justify-center items-center rounded-full cursor-pointer`}>
+                            <BiRightArrowAlt size={25} />
+                        </div>
+                        <div>
+                            <div className='ml-2 font-orbitron font-semibold text-xs lg:text-sm select-none'>
+                                <h1 >Minted January 02, 2023</h1>
+                                <h1>Contributor 0x4343...</h1>
+                            </div>
+                        </div>
                     </div>
+                    <div className="flex justify-center w-full">
+                    <MintButton/>
+                    </div>
+                   
 
                 </div>
             </div>
