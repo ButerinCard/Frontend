@@ -7,11 +7,11 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'orbitron' : ["'Orbitron'", "sans-serif"], 
-                'libre' : ["'Libre Baskerville'", 'serif']
+                'orbitron' : ["'Press Start 2P'", "cursive"], 
+                'plex' : [ "'IBM Plex Mono'", "monospace"]
             }, 
             colors:{
-                primaryYellow: '#FCD265', 
+                primaryYellow: '#E7F4F9', 
             }, 
             transitionDelay: {
                 '30' : '30ms', 

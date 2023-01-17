@@ -1,0 +1,15 @@
+
+
+@keyframes gradient { 
+   0% {
+    transform: translateY(0)
+   }
+   100% {
+    transform: translateY(10px) 
+   }
+}
+
+
+.box {
+    animation: gradient 1s linear infinite; 
+}

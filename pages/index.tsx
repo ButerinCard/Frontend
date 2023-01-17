@@ -7,7 +7,7 @@ import card2 from '../public/images/backOfCard.png';
 import card3 from '../public/images/cardBacks/back0.png'
 import proto from '../public/images/Proto.png';
 import card from '../public/images/Card.png'
-import Graphic from '../public/images/graphic.png'
+import Graphic from '../public/images/graphic2.png'
 
 import { useEffect, useState } from 'react';
 import Deck from '../components/Landing/Deck';
@@ -46,14 +46,13 @@ export default function Home() {
 
   return (
     <div className='overflow-x-hidden' style={{ background: '#e3dbcb' }}>
-      <Navbar></Navbar>
       <main className='w-screen h-screen relative overflow-y-auto overflow-x-hidden' style={{minHeight:'850px'}}>
         <div className='absolute w-screen h-full top-0 left-0'>
-          <Image src={Graphic} className='opacity-10 h-full ' alt=''></Image>
+          <Image src={Graphic} className='h-full w-full' alt=''></Image>
         </div>
        
-        <div className='z-0 absolute lg:px-12 xl:px-20 h-screen w-screen grid lg:grid-cols-3 items-center justify-center'>
-          <Deck />
+        <div className='z-0 absolute lg:px-12 xl:px-20 h-screen w-screen grid lg:grid-cols-2 items-center justify-center'>
+          {/* <Deck /> */}
           {cards.map((e, index, arr) => {
             if (i === index) {
               return <ButerinCard
@@ -70,7 +69,7 @@ export default function Home() {
           <div className='flex justify-center'>
             <div>
               <h1 className='text-center font-orbitron font-semibold mb-3 select-none'>TOP MINERS</h1>
-              <div className=' py-1 px-4 rounded-md md:w-60 md:h-80  xl:w-96 xl:h-96' style={{ background: '#ebe4d8'}}>
+              <div className=' py-1 px-4 rounded-md md:w-60 md:h-80  xl:w-96 xl:h-96 bg-black bg-opacity-10' >
                 <LeaderBoardEntry />
                 <LeaderBoardEntry />
                 <LeaderBoardEntry />
@@ -90,10 +89,10 @@ export default function Home() {
 
 function LeaderBoardEntry() {
   return (
-    <div className='flex justify-between font-libre text-sm my-2' >
+    <div className='flex justify-between font-plex text-sm my-2' >
 
       <div className='flex'>
-        <h1 className='mr-2 opacity-70'>#1</h1>
+        <h1 className='mr-2 opacity-70'># 1</h1>
         <h1>This is a name</h1>
       </div>
 

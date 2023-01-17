@@ -23,7 +23,7 @@ export default function ButerinCard({ prevImg, currentImg, goBack, goFoward, loa
         setTimeout(() => { setFlip2(true); }, 150);
     }
     return (
-        <div className='flex justify-center mt-24 mb-20'>
+        <div className='flex justify-center mb-20'>
             <div className='relative'>
                 <div className='hover:-translate-y-1 transition-transform'>
                     <div className={`transition-all  ease-linear duration-300 select-none ${flip ? 'rotate-y ' : ''}`}>
@@ -44,7 +44,7 @@ export default function ButerinCard({ prevImg, currentImg, goBack, goFoward, loa
                             <BiRightArrowAlt size={25} />
                         </div>
                         <div>
-                            <div className='ml-2 font-orbitron font-semibold text-xs lg:text-sm select-none'>
+                            <div className='ml-4 font-plex font-semibold text-xs lg:text-sm select-none'>
                                 <h1 >Minted January 02, 2023</h1>
                                 <h1>Contributor 0x4343...</h1>
                             </div>
