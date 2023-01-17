@@ -45,20 +45,19 @@ export default function Home() {
   const cardProps = { goBack, goFoward, load }
 
   return (
-    <div className='overflow-x-hidden' style={{ background: '#e3dbcb' }}>
-      <main className='w-screen h-screen relative overflow-y-auto overflow-x-hidden' style={{ minHeight: '850px' }}>
-        <div className="absolute top-0 w-full flex justify-center z-40" >
+    <div className='overflow-x-hidden'>
+      <main className='relative overflow-y-auto h-screen overflow-x-hidden' style={{ minHeight: '850px' }}>
+        <div className='absolute w-screen h-screen -z-10 top-0 left-0'>
+          <Image src={Graphic} className='h-screen w-full' alt=''></Image>
+        </div>
+        <div className="w-full flex justify-center z-40" >
           <div className='flex flex-col items-center'>
             <h1 className='font-orbitron mt-10 text-3xl'>A homage to Vitalik</h1>
             <h2 className='text-center font-orbitron text-xs mt-2 opacity-50'>Help us uplaod the largest JPEG on-chain</h2>
           </div>
 
         </div>
-        <div className='absolute w-screen h-full top-0 left-0'>
-          <Image src={Graphic} className='h-full w-full' alt=''></Image>
-        </div>
-
-        <div className='z-0 absolute lg:px-12 xl:px-44 h-screen w-screen grid lg:grid-cols-2 items-center justify-center'>
+        <div className='z-0 lg:px-12 xl:px-44 mt-20 w-screen grid lg:grid-cols-2 justify-center'>
           {/* <Deck /> */}
           {cards.map((e, index, arr) => {
             if (i === index) {
@@ -76,7 +75,7 @@ export default function Home() {
           <div className='flex justify-center'>
             <div>
               <h1 className='text-center font-orbitron font-semibold mb-3 select-none'>TOP MINERS</h1>
-              <div className=' py-1 px-4 rounded-md md:w-60 md:h-80  xl:w-96 xl:h-96 bg-black bg-opacity-10' >
+              <div className=' py-1 px-4 rounded-md md:w-60 md:h-80   xl:w-96 xl:h-96 bg-black bg-opacity-5' >
                 <LeaderBoardEntry />
                 <LeaderBoardEntry />
                 <LeaderBoardEntry />
@@ -87,6 +86,7 @@ export default function Home() {
           </div>
 
         </div>
+        
       </main>
 
     </div>
