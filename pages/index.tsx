@@ -1,7 +1,4 @@
 import Image from 'next/image'
-import deck from '../public/images/deck.png'
-import Navbar from '../components/Navbar';
-import MintButton from '../components/Landing/MintButton';
 import ButerinCard from '../components/Landing/ButerinCard';
 import card2 from '../public/images/backOfCard.png';
 import card3 from '../public/images/cardBacks/back0.png'
@@ -10,7 +7,9 @@ import card from '../public/images/Card.png'
 import Graphic from '../public/images/graphic2.png'
 
 import { useEffect, useState } from 'react';
-import Deck from '../components/Landing/Deck';
+
+import Miners from '../components/Landing/Miners';
+import VitalikHeader from '../components/Landing/VitalikHeader';
 export default function Home() {
   const [i, setI] = useState(1);
   const [goingFoward, setGoingFoward] = useState(false);
@@ -50,13 +49,7 @@ export default function Home() {
         <div className='absolute w-screen h-screen -z-10 top-0 left-0'>
           <Image src={Graphic} className='h-screen w-full' alt=''></Image>
         </div>
-        <div className="w-full flex justify-center z-40" >
-          <div className='flex flex-col items-center'>
-            <h1 className='font-orbitron mt-10 text-3xl'>A homage to Vitalik</h1>
-            <h2 className='text-center font-orbitron text-xs mt-2 opacity-50'>Help us uplaod the largest JPEG on-chain</h2>
-          </div>
-
-        </div>
+        <VitalikHeader/>
         <div className='z-0 lg:px-12 xl:px-44 mt-20 w-screen grid lg:grid-cols-2 justify-center'>
           {/* <Deck /> */}
           {cards.map((e, index, arr) => {
@@ -71,39 +64,11 @@ export default function Home() {
             }
           })}
 
-
-          <div className='flex justify-center'>
-            <div>
-              <h1 className='text-center font-orbitron font-semibold mb-3 select-none'>TOP MINERS</h1>
-              <div className=' py-1 px-4 rounded-md md:w-60 md:h-80   xl:w-96 xl:h-96 bg-black bg-opacity-5' >
-                <LeaderBoardEntry />
-                <LeaderBoardEntry />
-                <LeaderBoardEntry />
-                <LeaderBoardEntry />
-              </div>
-            </div>
-
-          </div>
-
+        <Miners/>
         </div>
-        
       </main>
-
     </div>
   )
 }
 
 
-function LeaderBoardEntry() {
-  return (
-    <div className='flex justify-between font-plex text-sm my-2' >
-
-      <div className='flex'>
-        <h1 className='mr-2 opacity-70'># 1</h1>
-        <h1>This is a name</h1>
-      </div>
-
-      <h2 className='opacity-70'>0000 KB</h2>
-    </div>
-  )
-}
