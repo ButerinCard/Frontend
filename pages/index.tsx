@@ -14,13 +14,13 @@ import Deck from '../components/Landing/Deck';
 export default function Home() {
   const [i, setI] = useState(1);
   const [goingFoward, setGoingFoward] = useState(false);
-  const [load, setLoad] = useState(false); 
+  const [load, setLoad] = useState(false);
 
   useEffect(() => {
-    if(!load) {
+    if (!load) {
       setTimeout(() => {
         setLoad(true)
-      }, 700); 
+      }, 700);
     }
   }, [load])
   let cards = [card2, proto, card, card3];
@@ -46,17 +46,24 @@ export default function Home() {
 
   return (
     <div className='overflow-x-hidden' style={{ background: '#e3dbcb' }}>
-      <main className='w-screen h-screen relative overflow-y-auto overflow-x-hidden' style={{minHeight:'850px'}}>
+      <main className='w-screen h-screen relative overflow-y-auto overflow-x-hidden' style={{ minHeight: '850px' }}>
+        <div className="absolute top-0 w-full flex justify-center z-40" >
+          <div className='flex flex-col items-center'>
+            <h1 className='font-orbitron mt-10 text-3xl'>A homage to Vitalik</h1>
+            <h2 className='text-center font-orbitron text-xs mt-2 opacity-50'>Help us uplaod the largest JPEG on-chain</h2>
+          </div>
+
+        </div>
         <div className='absolute w-screen h-full top-0 left-0'>
           <Image src={Graphic} className='h-full w-full' alt=''></Image>
         </div>
-       
-        <div className='z-0 absolute lg:px-12 xl:px-20 h-screen w-screen grid lg:grid-cols-2 items-center justify-center'>
+
+        <div className='z-0 absolute lg:px-12 xl:px-44 h-screen w-screen grid lg:grid-cols-2 items-center justify-center'>
           {/* <Deck /> */}
           {cards.map((e, index, arr) => {
             if (i === index) {
               return <ButerinCard
-                
+
                 key={e.src}
                 prevImg={!goingFoward ? cards[i - 1] : cards[i + 1]}
                 currentImg={cards[i]}
