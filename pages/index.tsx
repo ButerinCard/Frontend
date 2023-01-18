@@ -5,7 +5,7 @@ import card3 from '../public/images/cardBacks/back0.png'
 import proto from '../public/images/Proto.png';
 import card from '../public/images/Card.png'
 import Graphic from '../public/images/graphic2.png'
-
+import background from '../public/images/background.png'
 import { useEffect, useState } from 'react';
 
 import Miners from '../components/Landing/Miners';
@@ -45,7 +45,7 @@ export default function Home() {
 
   return (
     <div className='overflow-x-hidden'>
-      <main className='relative overflow-y-auto h-screen overflow-x-hidden' style={{ minHeight: '850px' }}>
+      <main className='relative overflow-y-auto h-screen overflow-x-hidden drop-shadow-md' style={{ minHeight: '850px' }}>
         <div className='absolute w-screen h-screen -z-10 top-0 left-0'>
           <Image src={Graphic} className='h-screen w-full' alt=''></Image>
         </div>
@@ -67,6 +67,31 @@ export default function Home() {
         <Miners/>
         </div>
       </main>
+      {/* About Sections */}
+      <div className='font-orbitron py-10' style={{backgroundImage:`url(${background.src})`}}>
+        <section className='bg-transparent'>
+          <h1 className='text-center' >About</h1>
+          <div className='rounded-lg my-10 mx-10 bg-black bg-opacity-5' style={{height:'433px'}}>
+
+          </div>
+        </section>  
+      
+        <section className='bg-transparent'>
+          <h1 className='text-center' >About</h1>
+          <div className='rounded-lg my-10 mx-10 bg-black bg-opacity-5' style={{height:'433px'}}>
+
+          </div>
+        </section> 
+
+        <section className='bg-transparent'>
+          <h1 className='text-center' >About</h1>
+          <div className='rounded-lg my-10 mx-10 bg-black bg-opacity-5' style={{height:'433px'}}>
+
+          </div>
+        </section> 
+       
+      </div>
+      
     </div>
   )
 }
