@@ -45,17 +45,16 @@ export default function Home() {
 
   return (
     <div className='overflow-x-hidden'>
-      <main className='relative overflow-y-auto h-screen overflow-x-hidden drop-shadow-md' style={{ minHeight: '850px' }}>
-        <div className='absolute w-screen h-screen -z-10 top-0 left-0'>
-          <Image src={Graphic} className='h-screen w-full' alt=''></Image>
+      <main className='relative overflow-y-auto h-screen overflow-x-hidden drop-shadow-lg' style={{ minHeight: '850px' }}>
+        <div className='absolute w-screen h-screen -z-10 top-0 left-0' >
+          <Image src={Graphic} className='h-screen w-full' style={{minHeight:'850px'}} alt=''></Image>
         </div>
         <VitalikHeader/>
-        <div className='z-0 lg:px-12 xl:px-44 mt-20 w-screen grid lg:grid-cols-2 justify-center'>
+        <div className='z-0 lg:px-12 xl:px-44 mt-44 sm:mt-20 w-screen grid lg:grid-cols-2 justify-center items-center'>
           {/* <Deck /> */}
           {cards.map((e, index, arr) => {
             if (i === index) {
               return <ButerinCard
-
                 key={e.src}
                 prevImg={!goingFoward ? cards[i - 1] : cards[i + 1]}
                 currentImg={cards[i]}
