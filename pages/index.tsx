@@ -50,7 +50,7 @@ export default function Home() {
           <Image src={Graphic} className='h-screen w-full' style={{minHeight:'850px'}} alt=''></Image>
         </div>
         <VitalikHeader/>
-        <div className='z-0 lg:px-12 xl:px-44 mt-44 sm:mt-20 w-screen grid lg:grid-cols-2 justify-center items-center'>
+        <div className='z-0 lg:px-12 xl:px-44 mt-16 sm:mt-20 w-screen grid lg:grid-cols-2 justify-center items-center'>
           {/* <Deck /> */}
           {cards.map((e, index, arr) => {
             if (i === index) {
