@@ -1,0 +1,6 @@
+query TopMiners {
+  miners(orderBy: kiloBytes, orderDirection:desc, first: 5) {
+    id
+    kiloBytes
+  }
+}
