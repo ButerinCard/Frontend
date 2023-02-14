@@ -27,10 +27,23 @@ export default function MintButton() {
   }, [colors])
 
   async function mint() {
+    const properChainId = 5; 
     try {
       if (!web3Provider || !inputs)
         return;
-      const Contract = new ethers.Contract('0xF25E991bC9564903daa08d75EA8B2b848A2F6058', artifact.abi, web3Provider.getSigner());
+      if (web3Provider.network.chainId !== properChainId) {
+        (window as any).ethereum.request({
+          method: "wallet_switchEthereumChain",
+          params: [{
+            chainId:'0x5',
+            // rpcUrls: ["http://127.0.0.1:8545"],
+            // chainName: "Goerli",
+        
+          }]
+        });
+        return;
+      }
+      const Contract = new ethers.Contract('0x9361AA1c97e0c66B9E1e17c7F3cC19Bd75771359', artifact.abi, web3Provider.getSigner());
       const chunks = (inputs as inputsData).miningInputs as miningChunk[]
       const rawTotalSupply = await Contract.totalSupply();
       const totalSupply = rawTotalSupply.toString();
@@ -50,7 +63,7 @@ export default function MintButton() {
     if (!address) {
       connect();
     } else {
-      mint(); 
+      mint();
     }
   }
   let boxStyles = 'blur-lg w-full h-full'
@@ -63,7 +76,7 @@ export default function MintButton() {
           <div className='absolute h-full w-full -z-10 top-0 grid grid-rows-6' style={{ width: '105%', height: '120%' }}>
             {colors.map(c => <div key={c} className={`${c} ` + boxStyles}></div>)}
           </div>
-          <h1>{address ? "MINT" : "CONNECT"}</h1>
+          <h1>{address ? "MINE" : "CONNECT"}</h1>
         </div>
       </div>
     </div>

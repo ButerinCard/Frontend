@@ -4,3 +4,12 @@ query TopMiners {
     kiloBytes
   }
 }
+
+
+query Cards {
+  cards(first: 5) {
+    id
+    dateMined 
+    miner
+  }
+}
