@@ -4,3 +4,9 @@ query TopMiners {
     kiloBytes
   }
 }
+
+query LastMinted {
+  cards(orderBy: id, orderDirection: desc, first: 1) {
+    id
+  }
+}

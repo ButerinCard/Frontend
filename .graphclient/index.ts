@@ -52,6 +52,120 @@ export type Block_height = {
   number_gte?: InputMaybe<Scalars['Int']>;
 };
 
+export type Card = {
+  id: Scalars['ID'];
+  dateMined: Scalars['BigInt'];
+  miner: Scalars['String'];
+  colorId: Scalars['BigInt'];
+  phaseId: Scalars['BigInt'];
+  tokenIdInPhase: Scalars['BigInt'];
+  quoteId: Scalars['BigInt'];
+  seed: Scalars['BigInt'];
+  lastTokenIdInScan: Scalars['BigInt'];
+};
+
+export type Card_filter = {
+  id?: InputMaybe<Scalars['ID']>;
+  id_not?: InputMaybe<Scalars['ID']>;
+  id_gt?: InputMaybe<Scalars['ID']>;
+  id_lt?: InputMaybe<Scalars['ID']>;
+  id_gte?: InputMaybe<Scalars['ID']>;
+  id_lte?: InputMaybe<Scalars['ID']>;
+  id_in?: InputMaybe<Array<Scalars['ID']>>;
+  id_not_in?: InputMaybe<Array<Scalars['ID']>>;
+  dateMined?: InputMaybe<Scalars['BigInt']>;
+  dateMined_not?: InputMaybe<Scalars['BigInt']>;
+  dateMined_gt?: InputMaybe<Scalars['BigInt']>;
+  dateMined_lt?: InputMaybe<Scalars['BigInt']>;
+  dateMined_gte?: InputMaybe<Scalars['BigInt']>;
+  dateMined_lte?: InputMaybe<Scalars['BigInt']>;
+  dateMined_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  dateMined_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  miner?: InputMaybe<Scalars['String']>;
+  miner_not?: InputMaybe<Scalars['String']>;
+  miner_gt?: InputMaybe<Scalars['String']>;
+  miner_lt?: InputMaybe<Scalars['String']>;
+  miner_gte?: InputMaybe<Scalars['String']>;
+  miner_lte?: InputMaybe<Scalars['String']>;
+  miner_in?: InputMaybe<Array<Scalars['String']>>;
+  miner_not_in?: InputMaybe<Array<Scalars['String']>>;
+  miner_contains?: InputMaybe<Scalars['String']>;
+  miner_contains_nocase?: InputMaybe<Scalars['String']>;
+  miner_not_contains?: InputMaybe<Scalars['String']>;
+  miner_not_contains_nocase?: InputMaybe<Scalars['String']>;
+  miner_starts_with?: InputMaybe<Scalars['String']>;
+  miner_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  miner_not_starts_with?: InputMaybe<Scalars['String']>;
+  miner_not_starts_with_nocase?: InputMaybe<Scalars['String']>;
+  miner_ends_with?: InputMaybe<Scalars['String']>;
+  miner_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  miner_not_ends_with?: InputMaybe<Scalars['String']>;
+  miner_not_ends_with_nocase?: InputMaybe<Scalars['String']>;
+  colorId?: InputMaybe<Scalars['BigInt']>;
+  colorId_not?: InputMaybe<Scalars['BigInt']>;
+  colorId_gt?: InputMaybe<Scalars['BigInt']>;
+  colorId_lt?: InputMaybe<Scalars['BigInt']>;
+  colorId_gte?: InputMaybe<Scalars['BigInt']>;
+  colorId_lte?: InputMaybe<Scalars['BigInt']>;
+  colorId_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  colorId_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  phaseId?: InputMaybe<Scalars['BigInt']>;
+  phaseId_not?: InputMaybe<Scalars['BigInt']>;
+  phaseId_gt?: InputMaybe<Scalars['BigInt']>;
+  phaseId_lt?: InputMaybe<Scalars['BigInt']>;
+  phaseId_gte?: InputMaybe<Scalars['BigInt']>;
+  phaseId_lte?: InputMaybe<Scalars['BigInt']>;
+  phaseId_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  phaseId_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  tokenIdInPhase?: InputMaybe<Scalars['BigInt']>;
+  tokenIdInPhase_not?: InputMaybe<Scalars['BigInt']>;
+  tokenIdInPhase_gt?: InputMaybe<Scalars['BigInt']>;
+  tokenIdInPhase_lt?: InputMaybe<Scalars['BigInt']>;
+  tokenIdInPhase_gte?: InputMaybe<Scalars['BigInt']>;
+  tokenIdInPhase_lte?: InputMaybe<Scalars['BigInt']>;
+  tokenIdInPhase_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  tokenIdInPhase_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  quoteId?: InputMaybe<Scalars['BigInt']>;
+  quoteId_not?: InputMaybe<Scalars['BigInt']>;
+  quoteId_gt?: InputMaybe<Scalars['BigInt']>;
+  quoteId_lt?: InputMaybe<Scalars['BigInt']>;
+  quoteId_gte?: InputMaybe<Scalars['BigInt']>;
+  quoteId_lte?: InputMaybe<Scalars['BigInt']>;
+  quoteId_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  quoteId_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  seed?: InputMaybe<Scalars['BigInt']>;
+  seed_not?: InputMaybe<Scalars['BigInt']>;
+  seed_gt?: InputMaybe<Scalars['BigInt']>;
+  seed_lt?: InputMaybe<Scalars['BigInt']>;
+  seed_gte?: InputMaybe<Scalars['BigInt']>;
+  seed_lte?: InputMaybe<Scalars['BigInt']>;
+  seed_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  seed_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  lastTokenIdInScan?: InputMaybe<Scalars['BigInt']>;
+  lastTokenIdInScan_not?: InputMaybe<Scalars['BigInt']>;
+  lastTokenIdInScan_gt?: InputMaybe<Scalars['BigInt']>;
+  lastTokenIdInScan_lt?: InputMaybe<Scalars['BigInt']>;
+  lastTokenIdInScan_gte?: InputMaybe<Scalars['BigInt']>;
+  lastTokenIdInScan_lte?: InputMaybe<Scalars['BigInt']>;
+  lastTokenIdInScan_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  lastTokenIdInScan_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
+  /** Filter for the block changed event. */
+  _change_block?: InputMaybe<BlockChangedFilter>;
+  and?: InputMaybe<Array<InputMaybe<Card_filter>>>;
+  or?: InputMaybe<Array<InputMaybe<Card_filter>>>;
+};
+
+export type Card_orderBy =
+  | 'id'
+  | 'dateMined'
+  | 'miner'
+  | 'colorId'
+  | 'phaseId'
+  | 'tokenIdInPhase'
+  | 'quoteId'
+  | 'seed'
+  | 'lastTokenIdInScan';
+
 export type Miner = {
   id: Scalars['ID'];
   kiloBytes: Scalars['BigInt'];
@@ -76,6 +190,8 @@ export type Miner_filter = {
   kiloBytes_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
   /** Filter for the block changed event. */
   _change_block?: InputMaybe<BlockChangedFilter>;
+  and?: InputMaybe<Array<InputMaybe<Miner_filter>>>;
+  or?: InputMaybe<Array<InputMaybe<Miner_filter>>>;
 };
 
 export type Miner_orderBy =
@@ -90,6 +206,8 @@ export type OrderDirection =
 export type Query = {
   miner?: Maybe<Miner>;
   miners: Array<Miner>;
+  card?: Maybe<Card>;
+  cards: Array<Card>;
   totalUploaded?: Maybe<TotalUploaded>;
   totalUploadeds: Array<TotalUploaded>;
   /** Access to subgraph metadata */
@@ -110,6 +228,24 @@ export type QueryminersArgs = {
   orderBy?: InputMaybe<Miner_orderBy>;
   orderDirection?: InputMaybe<OrderDirection>;
   where?: InputMaybe<Miner_filter>;
+  block?: InputMaybe<Block_height>;
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type QuerycardArgs = {
+  id: Scalars['ID'];
+  block?: InputMaybe<Block_height>;
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type QuerycardsArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Card_orderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  where?: InputMaybe<Card_filter>;
   block?: InputMaybe<Block_height>;
   subgraphError?: _SubgraphErrorPolicy_;
 };
@@ -140,6 +276,8 @@ export type Query_metaArgs = {
 export type Subscription = {
   miner?: Maybe<Miner>;
   miners: Array<Miner>;
+  card?: Maybe<Card>;
+  cards: Array<Card>;
   totalUploaded?: Maybe<TotalUploaded>;
   totalUploadeds: Array<TotalUploaded>;
   /** Access to subgraph metadata */
@@ -160,6 +298,24 @@ export type SubscriptionminersArgs = {
   orderBy?: InputMaybe<Miner_orderBy>;
   orderDirection?: InputMaybe<OrderDirection>;
   where?: InputMaybe<Miner_filter>;
+  block?: InputMaybe<Block_height>;
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type SubscriptioncardArgs = {
+  id: Scalars['ID'];
+  block?: InputMaybe<Block_height>;
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type SubscriptioncardsArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  first?: InputMaybe<Scalars['Int']>;
+  orderBy?: InputMaybe<Card_orderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  where?: InputMaybe<Card_filter>;
   block?: InputMaybe<Block_height>;
   subgraphError?: _SubgraphErrorPolicy_;
 };
@@ -211,6 +367,8 @@ export type TotalUploaded_filter = {
   kiloBytes_not_in?: InputMaybe<Array<Scalars['BigInt']>>;
   /** Filter for the block changed event. */
   _change_block?: InputMaybe<BlockChangedFilter>;
+  and?: InputMaybe<Array<InputMaybe<TotalUploaded_filter>>>;
+  or?: InputMaybe<Array<InputMaybe<TotalUploaded_filter>>>;
 };
 
 export type TotalUploaded_orderBy =
@@ -338,6 +496,9 @@ export type ResolversTypes = ResolversObject<{
   Block_height: Block_height;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Bytes: ResolverTypeWrapper<Scalars['Bytes']>;
+  Card: ResolverTypeWrapper<Card>;
+  Card_filter: Card_filter;
+  Card_orderBy: Card_orderBy;
   Float: ResolverTypeWrapper<Scalars['Float']>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
@@ -364,6 +525,8 @@ export type ResolversParentTypes = ResolversObject<{
   Block_height: Block_height;
   Boolean: Scalars['Boolean'];
   Bytes: Scalars['Bytes'];
+  Card: Card;
+  Card_filter: Card_filter;
   Float: Scalars['Float'];
   ID: Scalars['ID'];
   Int: Scalars['Int'];
@@ -406,6 +569,19 @@ export interface BytesScalarConfig extends GraphQLScalarTypeConfig<ResolversType
   name: 'Bytes';
 }
 
+export type CardResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Card'] = ResolversParentTypes['Card']> = ResolversObject<{
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  dateMined?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
+  miner?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  colorId?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
+  phaseId?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
+  tokenIdInPhase?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
+  quoteId?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
+  seed?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
+  lastTokenIdInScan?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
 export type MinerResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Miner'] = ResolversParentTypes['Miner']> = ResolversObject<{
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   kiloBytes?: Resolver<ResolversTypes['BigInt'], ParentType, ContextType>;
@@ -415,6 +591,8 @@ export type MinerResolvers<ContextType = MeshContext, ParentType extends Resolve
 export type QueryResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
   miner?: Resolver<Maybe<ResolversTypes['Miner']>, ParentType, ContextType, RequireFields<QueryminerArgs, 'id' | 'subgraphError'>>;
   miners?: Resolver<Array<ResolversTypes['Miner']>, ParentType, ContextType, RequireFields<QueryminersArgs, 'skip' | 'first' | 'subgraphError'>>;
+  card?: Resolver<Maybe<ResolversTypes['Card']>, ParentType, ContextType, RequireFields<QuerycardArgs, 'id' | 'subgraphError'>>;
+  cards?: Resolver<Array<ResolversTypes['Card']>, ParentType, ContextType, RequireFields<QuerycardsArgs, 'skip' | 'first' | 'subgraphError'>>;
   totalUploaded?: Resolver<Maybe<ResolversTypes['TotalUploaded']>, ParentType, ContextType, RequireFields<QuerytotalUploadedArgs, 'id' | 'subgraphError'>>;
   totalUploadeds?: Resolver<Array<ResolversTypes['TotalUploaded']>, ParentType, ContextType, RequireFields<QuerytotalUploadedsArgs, 'skip' | 'first' | 'subgraphError'>>;
   _meta?: Resolver<Maybe<ResolversTypes['_Meta_']>, ParentType, ContextType, Partial<Query_metaArgs>>;
@@ -423,6 +601,8 @@ export type QueryResolvers<ContextType = MeshContext, ParentType extends Resolve
 export type SubscriptionResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = ResolversObject<{
   miner?: SubscriptionResolver<Maybe<ResolversTypes['Miner']>, "miner", ParentType, ContextType, RequireFields<SubscriptionminerArgs, 'id' | 'subgraphError'>>;
   miners?: SubscriptionResolver<Array<ResolversTypes['Miner']>, "miners", ParentType, ContextType, RequireFields<SubscriptionminersArgs, 'skip' | 'first' | 'subgraphError'>>;
+  card?: SubscriptionResolver<Maybe<ResolversTypes['Card']>, "card", ParentType, ContextType, RequireFields<SubscriptioncardArgs, 'id' | 'subgraphError'>>;
+  cards?: SubscriptionResolver<Array<ResolversTypes['Card']>, "cards", ParentType, ContextType, RequireFields<SubscriptioncardsArgs, 'skip' | 'first' | 'subgraphError'>>;
   totalUploaded?: SubscriptionResolver<Maybe<ResolversTypes['TotalUploaded']>, "totalUploaded", ParentType, ContextType, RequireFields<SubscriptiontotalUploadedArgs, 'id' | 'subgraphError'>>;
   totalUploadeds?: SubscriptionResolver<Array<ResolversTypes['TotalUploaded']>, "totalUploadeds", ParentType, ContextType, RequireFields<SubscriptiontotalUploadedsArgs, 'skip' | 'first' | 'subgraphError'>>;
   _meta?: SubscriptionResolver<Maybe<ResolversTypes['_Meta_']>, "_meta", ParentType, ContextType, Partial<Subscription_metaArgs>>;
@@ -452,6 +632,7 @@ export type Resolvers<ContextType = MeshContext> = ResolversObject<{
   BigDecimal?: GraphQLScalarType;
   BigInt?: GraphQLScalarType;
   Bytes?: GraphQLScalarType;
+  Card?: CardResolvers<ContextType>;
   Miner?: MinerResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Subscription?: SubscriptionResolvers<ContextType>;
@@ -512,7 +693,7 @@ const buterinCardsGoerliTransforms = [];
 const additionalTypeDefs = [] as any[];
 const buterinCardsGoerliHandler = new GraphqlHandler({
               name: "ButerinCardsGoerli",
-              config: {"endpoint":"https://api.studio.thegraph.com/query/41656/buterincardsgoerli/v0.0.2"},
+              config: {"endpoint":"https://api.studio.thegraph.com/query/41656/buterincardsgoerli/v0.1.5"},
               baseDir,
               cache,
               pubsub,
@@ -551,6 +732,12 @@ const merger = new(BareMerger as any)({
           return printWithCache(TopMinersDocument);
         },
         location: 'TopMinersDocument.graphql'
+      },{
+        document: LastMintedDocument,
+        get rawSDL() {
+          return printWithCache(LastMintedDocument);
+        },
+        location: 'LastMintedDocument.graphql'
       }
     ];
     },
@@ -594,6 +781,11 @@ export type TopMinersQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type TopMinersQuery = { miners: Array<Pick<Miner, 'id' | 'kiloBytes'>> };
 
+export type LastMintedQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LastMintedQuery = { cards: Array<Pick<Card, 'id'>> };
+
 
 export const TopMinersDocument = gql`
     query TopMiners {
@@ -603,6 +795,14 @@ export const TopMinersDocument = gql`
   }
 }
     ` as unknown as DocumentNode<TopMinersQuery, TopMinersQueryVariables>;
+export const LastMintedDocument = gql`
+    query LastMinted {
+  cards(orderBy: id, orderDirection: desc, first: 1) {
+    id
+  }
+}
+    ` as unknown as DocumentNode<LastMintedQuery, LastMintedQueryVariables>;
+
 
 
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
@@ -610,6 +810,9 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
     TopMiners(variables?: TopMinersQueryVariables, options?: C): Promise<TopMinersQuery> {
       return requester<TopMinersQuery, TopMinersQueryVariables>(TopMinersDocument, variables, options) as Promise<TopMinersQuery>;
+    },
+    LastMinted(variables?: LastMintedQueryVariables, options?: C): Promise<LastMintedQuery> {
+      return requester<LastMintedQuery, LastMintedQueryVariables>(LastMintedDocument, variables, options) as Promise<LastMintedQuery>;
     }
   };
 }
