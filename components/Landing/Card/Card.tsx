@@ -22,10 +22,9 @@ export default function Card(props: props | undefined) {
     const tokenIdWithinPhase = 1;
     let colorId = 5;
     const subTitleText = 'tesrfds';
-    
+
     return (
         <div>
-            <h1>Card</h1>
             <div style={{ width: '300px', }}>
                 {/* <Image alt='' width={'100'} height='100' src={`/cardForContract.svg`}/> */}
                 <svg
@@ -38,7 +37,6 @@ export default function Card(props: props | undefined) {
                     style={{ fontSize: '23%' }}
                 // style="fontSize: 23%"
                 >
-
                     <defs>
                         <image href={url} id="vitalikJPEG" x="10" y="16.82842712475" width="80" />
                     </defs>
@@ -95,7 +93,7 @@ export default function Card(props: props | undefined) {
                                 id="tokenIdWithinPhase"
                                 x="82.8"
                                 y="13"
-                                style={{filter:`url('#titleShadow')`}}
+                                style={{ filter: `url('#titleShadow')` }}
                                 className='font-orbitron'
                                 fontSize="1.2em"
                                 fontWeight="bold"
@@ -134,7 +132,7 @@ export default function Card(props: props | undefined) {
                                 <rect width="100" height="140" clipPath="url('#subtitleClipOutside')" />
                             </g>
                         </g>
-                        <text id="subtitleText" x="11" y="87.4" fontSize="1em" style={{filter:`url('#titleShadow')`, fontFamily:'Orbitron'}} fontWeight="normal">
+                        <text id="subtitleText" x="11" y="87.4" fontSize="1em" className='font-orbitron' style={{ filter: `url('#titleShadow')`, fontFamily: 'Orbitron' }} fontWeight="normal">
                             {subTitleText}
                         </text>
                     </g>
@@ -172,7 +170,7 @@ export default function Card(props: props | undefined) {
                                 <rect width="100" height="140" clipPath="url('#descriptionClipOutside')" />
                             </g>
                         </g>
-                        <text fontWeight="normal" textAnchor="end" x="85" y="129" style={{filter:`url('#titleShadow')`, fontFamily:'Orbitron'}}>
+                        <text fontWeight="normal" textAnchor="end" x="85" y="129" style={{ filter: `url('#titleShadow')`, fontFamily: 'Orbitron' }}>
                             <tspan id="cardNumber" fontWeight="bold" fontSize="1.2em" />
                             <tspan fontSize=".8em">/ 2015</tspan>
                         </text>
