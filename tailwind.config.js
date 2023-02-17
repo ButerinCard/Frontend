@@ -7,8 +7,9 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'orbitron' : ["'Press Start 2P'", "cursive"], 
+                'PS2' : ["'Press Start 2P'", "cursive"], 
                 'plex' : [ "'IBM Plex Mono'", "monospace"],
+                'orbitron': ["'Orbitron'", "sans-serif"], 
                 'ubuntu': ["'Ubuntu Mono'", 'monospace']
             }, 
             colors:{

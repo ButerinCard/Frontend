@@ -58,7 +58,7 @@ export default function MintButton() {
   return (
     <div className="flex w-full justify-center ">
       <div className='flex justify-center '>
-        <div onClick={MintOrConnect} className={'shadowBox relative lg:mt-12 mt-4 lg:w-52 w-32 select-none flex justify-center bg-primaryYellow cursor-pointer py-1 lg:py-3 font-orbitron' +
+        <div onClick={MintOrConnect} className={'shadowBox relative lg:mt-12 mt-4 lg:w-52 w-32 select-none flex justify-center bg-primaryYellow cursor-pointer py-1 lg:py-3 font-PS2' +
           ' font-semibold text-lg  lg:text-xl rounded-md'}   >
           <div className='absolute h-full w-full -z-10 top-0 grid grid-rows-6' style={{ width: '105%', height: '120%' }}>
             {colors.map(c => <div key={c} className={`${c} ` + boxStyles}></div>)}

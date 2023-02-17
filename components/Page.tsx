@@ -58,7 +58,7 @@ export default function Page({ tokenId, lastTokenId }: props) {
                 </div>
             </main>
             {/* About Sections */}
-            <div className='font-orbitron py-10' style={{ backgroundImage: `url(${background.src})` }}>
+            <div className='font-PS2 py-10' style={{ backgroundImage: `url(${background.src})` }}>
                 <section className='bg-transparent'>
                     <div className='text-black flex justify-center'>
                         <ImSpinner8 size={30} className='animate-spin' />

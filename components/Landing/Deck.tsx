@@ -17,7 +17,7 @@ export default function Deck() {
     return (
         <div className='hidden justify-center lg:flex select-none' >
             <div className='flex flex-col items-center' >
-                <h1 className='text-center font-orbitron mb-1 font-semibold'>651 Left</h1>
+                <h1 className='text-center font-PS2 mb-1 font-semibold'>651 Left</h1>
                 <div className='relative z-30 ease-in' onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                     <Image className={` md:w-44 lg:w-52 2xl:w-64 transition-all translate-y-3  ${hover ? 'translate-y-0' : ''} `} src={deck} alt={''}></Image>
                     <Image className={`absolute top-4 right-4 delay-30 transition-all translate-y-3 ${hover ? 'translate-y-0' : ''} `} src={back1} alt={'back1'}></Image>

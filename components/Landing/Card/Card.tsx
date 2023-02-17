@@ -16,15 +16,13 @@ export default function Card(props: props | undefined) {
             })
     }), [props]);
 
-    let patternId = '4';
-    const url = '/jpegs/Buterin000.jpg';
+    let patternId = 0;
+    const url = '/jpegs/Buterin042.jpg';
     const kiloBytes = 'abc';
     const tokenIdWithinPhase = 1;
-    let colorId = 6;
+    let colorId = 5;
     const subTitleText = 'tesrfds';
     
-
-    // (document as any).querySelectorAll(".rotate").forEach((element: any) => element.setAttribute("patternTransform", bgRotate));
     return (
         <div>
             <h1>Card</h1>
@@ -97,7 +95,8 @@ export default function Card(props: props | undefined) {
                                 id="tokenIdWithinPhase"
                                 x="82.8"
                                 y="13"
-                                className="fontTitle"
+                                style={{filter:`url('#titleShadow')`}}
+                                className='font-orbitron'
                                 fontSize="1.2em"
                                 fontWeight="bold"
                                 textAnchor="end"
@@ -135,7 +134,7 @@ export default function Card(props: props | undefined) {
                                 <rect width="100" height="140" clipPath="url('#subtitleClipOutside')" />
                             </g>
                         </g>
-                        <text id="subtitleText" x="11" y="87.4" fontSize="1em" className="fontTitle" fontWeight="normal">
+                        <text id="subtitleText" x="11" y="87.4" fontSize="1em" style={{filter:`url('#titleShadow')`, fontFamily:'Orbitron'}} fontWeight="normal">
                             {subTitleText}
                         </text>
                     </g>
@@ -173,7 +172,7 @@ export default function Card(props: props | undefined) {
                                 <rect width="100" height="140" clipPath="url('#descriptionClipOutside')" />
                             </g>
                         </g>
-                        <text fontWeight="normal" textAnchor="end" x="85" y="129" className="fontTitle">
+                        <text fontWeight="normal" textAnchor="end" x="85" y="129" style={{filter:`url('#titleShadow')`, fontFamily:'Orbitron'}}>
                             <tspan id="cardNumber" fontWeight="bold" fontSize="1.2em" />
                             <tspan fontSize=".8em">/ 2015</tspan>
                         </text>
