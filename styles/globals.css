@@ -21,3 +21,19 @@
 }
 
 
+
+.fontTitle {
+    font-family: "Orbitron";
+    filter: url('#titleShadow');
+}
+.fontQuote {
+    font-family: "Ubuntu Mono";
+    font-style: italic;
+    font-size: 1em;
+    opacity: .9;
+}
+.fontProperty {
+    font-family: "Ubuntu Mono";
+    font-size: 1em;
+    opacity: .9;
+}

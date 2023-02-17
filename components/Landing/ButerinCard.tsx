@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
 import MintButton from './MintButton';
-import Card from './Card';
+import Card from './Card/Card';
 import { execute } from '../../.graphclient';
 import { CardParams } from '../../libs/types';
 import { condenseAddress } from '../../libs/helpers';

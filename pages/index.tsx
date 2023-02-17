@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { execute, LastMintedDocument } from "../.graphclient";
+import Script from 'next/script'; 
 import Page from "../components/Page";
 
 export default function Home() {
@@ -14,7 +15,10 @@ export default function Home() {
 
 
   return (
-    <Page tokenId={tokenId} lastTokenId={tokenId} />
+    <div>
+      <Page tokenId={tokenId} lastTokenId={tokenId} />
+    </div>
+
   )
 }
 

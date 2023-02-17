@@ -63,7 +63,7 @@ export default function MintButton() {
           <div className='absolute h-full w-full -z-10 top-0 grid grid-rows-6' style={{ width: '105%', height: '120%' }}>
             {colors.map(c => <div key={c} className={`${c} ` + boxStyles}></div>)}
           </div>
-          <h1>{address ? "MINT" : "CONNECT"}</h1>
+          <h1>{address ? "MINE" : "CONNECT"}</h1>
         </div>
       </div>
     </div>

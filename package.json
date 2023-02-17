@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@graphprotocol/client-cli": "^2.2.16",
+    "@svgr/webpack": "^6.5.1",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.20",
     "tailwindcss": "^3.2.4"
