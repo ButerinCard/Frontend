@@ -3,7 +3,8 @@ import Image from 'next/image'
 import { GenerateCard } from '../../../libs/generateCard';
 import { CardParams } from '../../../libs/types';
 import DescriptionText from './DescriptionText';
-import Defs from './Defs';
+import Defs from './Defs/Defs';
+import { fidenzaPalette } from './helpers';
 type props = CardParams;
 export default function Card(props: props | undefined) {
     const [src, setSrc] = useState('');
@@ -11,20 +12,24 @@ export default function Card(props: props | undefined) {
         if (props)
             GenerateCard(props).then(r => {
                 const base64data = btoa(unescape(encodeURIComponent(r)));
-                setSrc(base64data);
+                setSrc(r);
             })
     }), [props]);
-    
-    let patternId = '2';
+
+    let patternId = '4';
     const url = '/jpegs/Buterin000.jpg';
     const kiloBytes = 'abc';
     const tokenIdWithinPhase = 1;
-    let colorId = 1;
+    let colorId = 6;
     const subTitleText = 'tesrfds';
+    
+
+    // (document as any).querySelectorAll(".rotate").forEach((element: any) => element.setAttribute("patternTransform", bgRotate));
     return (
         <div>
             <h1>Card</h1>
-            <div style={{ width: '300px' }}>
+            <div style={{ width: '300px', }}>
+                {/* <Image alt='' width={'100'} height='100' src={`/cardForContract.svg`}/> */}
                 <svg
                     viewBox="0 0 100 140"
                     shapeRendering="geometricPrecision"
@@ -32,6 +37,7 @@ export default function Card(props: props | undefined) {
                     imageRendering="optimizeQuality"
                     xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink"
+                    style={{ fontSize: '23%' }}
                 // style="fontSize: 23%"
                 >
 
@@ -42,7 +48,7 @@ export default function Card(props: props | undefined) {
 
                     <rect width="100" height="140" rx="5" fill="black" />
 
-                    <path id="frame" fill={`#{url(#patterns${patternId})}`} d="
+                    <path id="frame" fill={`url('#pattern${patternId}')`} d="
                                         M6 4
                                         L4 6
                                         V124
@@ -67,17 +73,15 @@ export default function Card(props: props | undefined) {
                             strokeDasharray="0 219.313708499 219.313708499"
                         />
                     </g>
-
-
                     <g>
-                        <use className={`fidenzaColor[${colorId}]`} href="#titlePath" filter="url('#glow')" fill="white" />
+                        <use href="#titlePath" filter="url('#glow')" fill={fidenzaPalette[colorId]} />
                         <use href="#titlePath" fill="white" opacity=".9" />
                         <g width="100" height="140" clipPath="url('#titleClip')">
                             <g filter="url('#bevel')">
                                 <rect width="100" height="140" clipPath="url('#titleClipOutside')" />
                             </g>
                         </g>
-                        <text x="11" y="13" fontSize="1.2em" className='font-orbitron text' style={{fontSize:'4px'}} fontWeight="bold">Buterin Card</text>
+                        <text x="11" y="13" fontSize="1.2em" className='font-orbitron text' style={{ fontSize: '4px' }} fontWeight="bold">Buterin Card</text>
 
                         <rect
                             id="numberWrap"
@@ -124,7 +128,7 @@ export default function Card(props: props | undefined) {
                     </g>
 
                     <g>
-                        <use className={`fidenzaColor[${colorId}]`} href="#subtitlePath" filter="url('#glow')" fill="white" />
+                        <use href="#subtitlePath" filter="url('#glow')" fill={fidenzaPalette[colorId]} />
                         <use href="#subtitlePath" fill="white" opacity=".9" />
                         <g width="100" height="140" clipPath="url('#subtitleClip')">
                             <g filter="url('#bevel')">
@@ -138,9 +142,9 @@ export default function Card(props: props | undefined) {
 
                     <g filter="url('#glow')">
                         <use
-                            className={`fidenzaColor[${colorId}]`}
+
                             href="#descriptionPath"
-                            fill="white"
+                            fill={fidenzaPalette[colorId]}
                             clipPath="url('#descriptionWithoutCardNumberClip')"
                         />
                     </g>
@@ -151,15 +155,14 @@ export default function Card(props: props | undefined) {
                             <rect width="100" height="140" clipPath="url('#descriptionClipOutside')" />
                         </g>
                     </g>
-                    <DescriptionText lines={[]} />
+                    <DescriptionText lines={["lorem ipsum is a name", 'lorem ispum']} />
 
-                    <text id="lineKB" className="fontProperty" x="20" y="128">{kiloBytes}</text>
-
+                    <text id="lineKB" className='font-ubuntu opacity-90 ' style={{ fontSize: '1em' }} x="20" y="128">{kiloBytes}</text>
                     <g transform="translate(1, 1)">
                         <g filter="url('#glow')">
                             <use
-                                className={`fidenzaColor[${colorId}]`}
-                                fill="white"
+
+                                fill={fidenzaPalette[colorId]}
                                 href="#descriptionPath"
                                 clipPath="url('#descriptionWithCardNumberClip')"
                             />

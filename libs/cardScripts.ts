@@ -53,10 +53,12 @@ export function runScript() {
     (document as any).getElementById("frameBlurry").setAttribute("fill", `url(#pattern${patternId})`);
 
     // Formatting the background
+    // # DONE 
     const discreteAngles = [0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,225,240,255,270,285,300,315,330,345];
     const bgRotate = `rotate(${discreteAngles[Math.floor(rnd()*24)]})`;
     (document as any).querySelectorAll(".rotate").forEach((element: any) => element.setAttribute("patternTransform", bgRotate));
-
+    // # DONE 
+    
     // Formatting title box
     const ethTitleElement = (document as any).getElementById("eth_title");
     switch (phaseId) {
