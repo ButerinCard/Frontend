@@ -8,6 +8,8 @@ import Miners from '../components/Landing/Miners';
 import VitalikHeader from '../components/Landing/VitalikHeader';
 import { execute } from '../.graphclient';
 import ButerinCard from './Landing/ButerinCard';
+import { FaDiscord } from 'react-icons/fa';
+import Link from 'next/link';
 interface MintedCard {
     dateMinted: string,
     id: string,
@@ -28,7 +30,7 @@ interface props {
 export default function Page({ tokenId, prev }: props) {
     const [load, setLoad] = useState(false);
     const [mintedCards, setMintedCards] = useState<MintedCard[]>([]);
-    
+
     useEffect(() => {
         execute(query, { id: '0' }).then((r: any) => {
             setMintedCards(r.data.cards as MintedCard[]);
@@ -36,10 +38,10 @@ export default function Page({ tokenId, prev }: props) {
     }, []);
 
     useEffect(() => {
-        setLoad(false); 
+        setLoad(false);
     }, [tokenId])
     function setLoadem() {
-        setLoad(true); 
+        setLoad(true);
     }
     return (
         <div className='overflow-x-hidden'>
@@ -47,8 +49,14 @@ export default function Page({ tokenId, prev }: props) {
                 <div className='absolute w-screen h-screen -z-10 top-0 left-0' >
                     <Image src={Graphic} className='h-screen w-full' style={{ minHeight: '850px' }} alt=''></Image>
                 </div>
+                <Link href={'https://discord.com'}>
+                    <div className='absolute right-5 top-5 z-20 cursor-pointer'>
+                        <FaDiscord size={40} />
+                    </div>
+                </Link>
+
                 {/* Card */}
-            
+
                 <VitalikHeader />
                 <div className='z-0 lg:px-12 xl:px-72  top-0 flex gap-24 justify-center items-center h-screen w-screen absolute ' style={{ minHeight: '850px' }}>
                     {/* <Deck /> */}
@@ -56,7 +64,7 @@ export default function Page({ tokenId, prev }: props) {
                     <Miners />
                 </div>
             </main>
-            
+
             {/* About Sections */}
             <div className='font-PS2 py-10' style={{ backgroundImage: `url(${background.src})` }}>
                 <section className='bg-transparent'>
