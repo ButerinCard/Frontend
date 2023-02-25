@@ -7,7 +7,7 @@ import useCardProvider from "../../libs/hooks/card";
 export default function Card() {
     const router = useRouter();
     const [lastTokenId, setTokenId] = useState('-1');
-    const {prev, setPrev} = useCardProvider(); 
+    const { prev, setPrev } = useCardProvider();
     useEffect(() => {
         execute(LastMintedDocument, {}).then(r => {
             if (r.data) {
@@ -17,14 +17,16 @@ export default function Card() {
     }, [])
 
     const { slug, prev: prevQ } = router.query
-    if(prevQ ){
-        
-        setPrev(true)
-    } else {
-        setPrev(false); 
-    }
+    useEffect(() => {
+        if (prevQ) {
+            setPrev(true)
+        } else {
+            setPrev(false);
+        }
+    }, [prevQ, setPrev])
 
-    const tokenId = slug as string; 
+
+    const tokenId = slug as string;
     return (
         <Page tokenId={tokenId} prev={false} />
     )

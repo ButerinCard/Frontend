@@ -68,7 +68,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded }: Props) {
     for (var i = 0; i < 6; i++) {
         let zIndex = `-${i+1}`
         if(parseInt(tokenId) > i)
-            backCards.push(<Image src={card1} className={`-translate-x-${i} translate-y-${i} absolute top-0`} style={{ zIndex, width: '300px', height: '420px' }} alt={''}></Image>)
+            backCards.push(<Image key={i} src={card1} className={`-translate-x-${i} translate-y-${i} absolute top-0`} style={{ zIndex, width: '300px', height: '420px' }} alt={''}></Image>)
     }
     return (
         <div className='flex justify-end mb-20'>

@@ -733,6 +733,12 @@ const merger = new(BareMerger as any)({
         },
         location: 'TopMinersDocument.graphql'
       },{
+        document: GetHandDocument,
+        get rawSDL() {
+          return printWithCache(GetHandDocument);
+        },
+        location: 'GetHandDocument.graphql'
+      },{
         document: LastMintedDocument,
         get rawSDL() {
           return printWithCache(LastMintedDocument);
@@ -781,6 +787,11 @@ export type TopMinersQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type TopMinersQuery = { miners: Array<Pick<Miner, 'id' | 'kiloBytes'>> };
 
+export type GetHandQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetHandQuery = { cards: Array<Pick<Card, 'id' | 'miner'>> };
+
 export type LastMintedQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -795,6 +806,14 @@ export const TopMinersDocument = gql`
   }
 }
     ` as unknown as DocumentNode<TopMinersQuery, TopMinersQueryVariables>;
+export const GetHandDocument = gql`
+    query GetHand {
+  cards(where: {miner: "0xa60eB80607bF4D5CB385899dbAF58b32476831B9"}) {
+    id
+    miner
+  }
+}
+    ` as unknown as DocumentNode<GetHandQuery, GetHandQueryVariables>;
 export const LastMintedDocument = gql`
     query LastMinted {
   cards(orderBy: id, orderDirection: desc, first: 1) {
@@ -805,11 +824,15 @@ export const LastMintedDocument = gql`
 
 
 
+
 export type Requester<C = {}, E = unknown> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R> | AsyncIterable<R>
 export function getSdk<C, E>(requester: Requester<C, E>) {
   return {
     TopMiners(variables?: TopMinersQueryVariables, options?: C): Promise<TopMinersQuery> {
       return requester<TopMinersQuery, TopMinersQueryVariables>(TopMinersDocument, variables, options) as Promise<TopMinersQuery>;
+    },
+    GetHand(variables?: GetHandQueryVariables, options?: C): Promise<GetHandQuery> {
+      return requester<GetHandQuery, GetHandQueryVariables>(GetHandDocument, variables, options) as Promise<GetHandQuery>;
     },
     LastMinted(variables?: LastMintedQueryVariables, options?: C): Promise<LastMintedQuery> {
       return requester<LastMintedQuery, LastMintedQueryVariables>(LastMintedDocument, variables, options) as Promise<LastMintedQuery>;

@@ -4,6 +4,12 @@ query TopMiners {
     kiloBytes
   }
 }
+query GetHand {
+  cards(where: {miner: "0xa60eB80607bF4D5CB385899dbAF58b32476831B9"}) {
+    id 
+    miner
+  }
+}
 
 query LastMinted {
   cards(orderBy: id, orderDirection: desc, first: 1) {
