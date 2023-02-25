@@ -1,6 +1,5 @@
 import { ethers } from 'ethers';
 import React, { useEffect, useState } from 'react'
-import { textChangeRangeIsUnchanged } from 'typescript';
 import useWeb3Provider from '../../libs/hooks/web3';
 import artifact from '../../public/JPEGminer.json'
 import inputs from '../../public/miningInputs.json';
@@ -53,7 +52,7 @@ export default function MintButton() {
       mint(); 
     }
   }
-  let boxStyles = 'blur-lg w-full h-full'
+  let boxStyles = 'blur-lg w-full h-4'
   let hoverBoxStyles = 'blur-lg w-full h-full'
   return (
     <div className="flex w-full justify-center ">

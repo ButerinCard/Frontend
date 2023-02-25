@@ -6,9 +6,6 @@ import { Web3ProviderState, Web3Action } from './types'
 import { getWeb3Modal } from './getWeb3Modal'
 import Context from './Context'
 
-
-
-
 // Web3Modal code goes here
 const web3Modal = getWeb3Modal();
 

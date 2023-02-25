@@ -22,26 +22,25 @@ query GetCards($id: ID!) {
 `
 interface props {
     tokenId: string
-    lastTokenId:string
+    prev: boolean
 }
-export default function Page({ tokenId, lastTokenId }: props) {
+
+export default function Page({ tokenId, prev }: props) {
     const [load, setLoad] = useState(false);
     const [mintedCards, setMintedCards] = useState<MintedCard[]>([]);
+    
     useEffect(() => {
         execute(query, { id: '0' }).then((r: any) => {
-
             setMintedCards(r.data.cards as MintedCard[]);
         }).catch((e: any) => console.log(e));
     }, []);
 
     useEffect(() => {
-        if (!load) {
-            setTimeout(() => {
-                setLoad(true)
-            }, 700);
-        }
-    }, [load])
-
+        setLoad(false); 
+    }, [tokenId])
+    function setLoadem() {
+        setLoad(true); 
+    }
     return (
         <div className='overflow-x-hidden'>
             <main className='relative overflow-y-auto h-screen overflow-x-hidden drop-shadow-lg' style={{ minHeight: '850px' }}>
@@ -51,12 +50,13 @@ export default function Page({ tokenId, lastTokenId }: props) {
                 {/* Card */}
             
                 <VitalikHeader />
-                <div className='z-0 lg:px-12 xl:px-44 mt-16 sm:mt-20 w-screen grid lg:grid-cols-2 justify-center items-top'>
+                <div className='z-0 lg:px-12 xl:px-72   top-0 flex gap-24 justify-center items-center h-screen w-screen absolute '>
                     {/* <Deck /> */}
-                    <ButerinCard tokenId={tokenId} lastTokenId={lastTokenId}></ButerinCard>
+                    <ButerinCard tokenId={tokenId} reload={load} setLoaded={setLoadem}></ButerinCard>
                     <Miners />
                 </div>
             </main>
+            
             {/* About Sections */}
             <div className='font-PS2 py-10' style={{ backgroundImage: `url(${background.src})` }}>
                 <section className='bg-transparent'>
