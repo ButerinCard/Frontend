@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import useWeb3Provider from '../../libs/hooks/web3';
 import artifact from '../../public/JPEGminer.json'
 import inputs from '../../public/miningInputs.json';
+import Image from 'next/image';
+import rainbow from '../../public/rainbow.webp';
 interface miningChunk {
   dataChunk: string,
   phaseId: number
@@ -49,7 +51,7 @@ export default function MintButton() {
     if (!address) {
       connect();
     } else {
-      mint(); 
+      mint();
     }
   }
   let boxStyles = 'blur-lg w-full h-4'
@@ -57,12 +59,14 @@ export default function MintButton() {
   return (
     <div className="flex w-full justify-center ">
       <div className='flex justify-center '>
-        <div onClick={MintOrConnect} className={'shadowBox relative lg:mt-12 mt-4 lg:w-52 w-32 select-none flex justify-center bg-primaryYellow cursor-pointer py-1 lg:py-3 font-PS2' +
+        <div onClick={MintOrConnect} className={'shadowBox relative lg:mt-12 h-16 lg:w-52 w-32 select-none flex justify-center items-center bg-white cursor-pointer py-1 lg:py-3 font-PS2' +
           ' font-semibold text-lg  lg:text-xl rounded-md'}   >
-          <div className='absolute h-full w-full -z-10 top-0 grid grid-rows-6' style={{ width: '105%', height: '120%' }}>
-            {colors.map(c => <div key={c} className={`${c} ` + boxStyles}></div>)}
+
+          <div className='absolute h-full w-full flex -z-10 top-0  grid-rows-6 blur-sm' >
+            <Image src={rainbow} alt={''}></Image>
           </div>
-          <h1>{address ? "MINE" : "CONNECT"}</h1>
+          
+          <h1 className='font-medium' style={{ fontSize: '24px' }}>{address ? "Mine" : "Connect"}</h1>
         </div>
       </div>
     </div>

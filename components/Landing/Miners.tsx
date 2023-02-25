@@ -60,10 +60,10 @@ export default function Miners() {
   return (
     <div className='lg:flex justify-start hidden '>
       <div>
-        <div className='flex justify-around'>
-          <h1 className={`${type === LeaderBoardType.miners ? '' : ' opacity-60 '} text-center font-PS2 font-semibold mb-3 select-none cursor-pointer`}
+        <div className='flex justify-center mb-3 text-sm'>
+          <h1 className={`${type === LeaderBoardType.miners ? '' : ' opacity-60 '} text-center font-PS2 font-medium mb-3 select-none cursor-pointer mx-3`}
             onClick={() => setType(LeaderBoardType.miners)}>Top miners</h1>
-          <h1 className={` ${type === LeaderBoardType.hand ? '' : ' opacity-60 '} text-center font-PS2 font-semibold mb-3 select-none cursor-pointer`}
+          <h1 className={` ${type === LeaderBoardType.hand ? '' : ' opacity-60 '} text-center font-PS2 font-medium mb-3 select-none cursor-pointer mx-3`}
             onClick={() => setType(LeaderBoardType.hand)}>Your hand</h1>
         </div>
 

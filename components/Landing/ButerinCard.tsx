@@ -95,7 +95,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded }: Props) {
                     </div>
                 </div>
 
-                <div className="absolute w-full mt-7 -translate-x-7">
+                <div className="absolute w-full mt-7 -translate-x-7" >
                     <div className="flex">
                         {parseInt(tokenId) > 0 && <Link href={'/cards/' + (parseInt(tokenId) - 1) + "?prev=true"}>
                             <div className='cursor-pointer'>
@@ -111,9 +111,10 @@ export default function ButerinCard({ tokenId, reload, setLoaded }: Props) {
                             </div>
                         </Link>
                         <div>
-                            {params?.miner && <div className='ml-4 font-plex font-semibold text-xs lg:text-sm select-none'>
-                                <h1>Minted January 02, 2023</h1>
-                                <h1>Contributor {condenseAddress(params?.miner)}</h1>
+                            {params?.miner && <div className='ml-4 font-plex  lg:text-sm select-none ' style={{fontSize:'12px'}}>
+                                <h1 className='leading-4'>Card: 456 / 2015</h1>
+                                <h1 className='leading-4'>Minted: January 02, 2023</h1>
+                                <h1 className='leading-4'>Contributor: {condenseAddress(params?.miner)}</h1>
                             </div>}
                             {!params?.miner &&
                                 <div className='flex justify-center  animate-spin w-44'>

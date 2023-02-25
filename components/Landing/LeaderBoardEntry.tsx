@@ -7,7 +7,7 @@ interface props {
 }
 function LeaderBoardEntry({ place, kilobytes, address }: props) {
     return (
-        <div className='flex justify-between font-plex text-sm my-2' >
+        <div className='flex justify-between font-plex text-md my-4' >
 
             <div className='flex'>
                 <h1 className='mr-2 opacity-70'># {place}</h1>

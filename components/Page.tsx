@@ -50,7 +50,7 @@ export default function Page({ tokenId, prev }: props) {
                 {/* Card */}
             
                 <VitalikHeader />
-                <div className='z-0 lg:px-12 xl:px-72   top-0 flex gap-24 justify-center items-center h-screen w-screen absolute '>
+                <div className='z-0 lg:px-12 xl:px-72  top-0 flex gap-24 justify-center items-center h-screen w-screen absolute ' style={{ minHeight: '850px' }}>
                     {/* <Deck /> */}
                     <ButerinCard tokenId={tokenId} reload={load} setLoaded={setLoadem}></ButerinCard>
                     <Miners />
