@@ -19,10 +19,7 @@ async function pullDataMinedJPEG() {
     const provider = new ethers.providers.InfuraProvider("homestead", apiKey);
     const minedJPEG = new ethers.Contract(minedJpegAddr, abi, provider);
 
-    // console.log(minedJPEG.interface.events["Mined(address,string)"]);
-    // console.log(minedJPEG.interface.events["Transfer(address,address,uint256)"].signature);
-
-    // // Retreive all Mined events
+    // Retreive all Mined events
     const minedLogs = await provider.getLogs({
         address: minedJpegAddr,
         fromBlock: ethers.utils.hexValue(13758156),
@@ -30,8 +27,8 @@ async function pullDataMinedJPEG() {
         topics: [ethers.utils.id("Mined(address,string)")]
     });
 
-    // DO NOT RETURN AN ARRAY, BUT RETURN OBJECT WITH MINER ADDRESS AS KEY. IT SHOULD SHOW SEPARATE EVENTS AND AGGREGATED BYTES.
-    return Promise.all(
+    // Substract some attributes from the logs
+    const minedEvents = await Promise.all(
         minedLogs
             .sort((a, b) => a.blockNumber > b.blockNumber)
             .map(async ({ blockNumber, data }, tokenId) => {
@@ -40,6 +37,15 @@ async function pullDataMinedJPEG() {
                 return { miner, timestamp, tokenId, bytes: tokenIdToBytes[tokenId] };
             })
     );
+
+    // Group the events by miner
+    const minedEventsByMiner = {};
+    minedEvents.forEach(({ miner, timestamp, tokenId, bytes }) => {
+        if (minedEventsByMiner[miner]) minedEventsByMiner[miner].push({ timestamp, tokenId, bytes });
+        else minedEventsByMiner[miner] = [{ timestamp, tokenId, bytes }];
+    });
+
+    return minedEventsByMiner;
 }
 
 module.exports = { pullDataMinedJPEG };
