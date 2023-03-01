@@ -21,7 +21,7 @@ export default function About() {
 
                 <section className='bg-transparent'>
                     <h1 className='text-center' >How does JPEG mining work?</h1>
-                    <div className='rounded-lg my-10 2xl:mx-80 bg-black bg-opacity-5 font-mono py-10 px-8 lg:px-52 text-lg ' >
+                    <div className='rounded-lg my-10 2xl:mx-80 bg-black bg-opacity-5 font-mono py-10 px-8 lg:px-52 text-sm sm:text-lg ' >
                         <p>This is an NFT, acting as a homage to Vitalik. In total there will be 2015 cards.</p>
                         <br></br>
                        

@@ -53,12 +53,12 @@ export default function Page({ tokenId, lastTokenId }: props) {
 
     return (
         <div className='overflow-x-hidden'>
-            <main className='relative overflow-y-auto h-screen overflow-x-hidden drop-shadow-lg' style={{ minHeight: '850px' }}>
+            <main className='relative overflow-y-auto h-screen overflow-x-hidden drop-shadow-lg' style={{ minHeight: '700px' }}>
                 <div className='absolute w-screen h-screen -z-10 top-0 left-0' >
-                    <Image src={Graphic} className='h-screen w-full' style={{ minHeight: '850px' }} alt=''></Image>
+                    <Image src={Graphic} className='h-screen w-full' style={{ minHeight: '700px' }} alt=''></Image>
                 </div>
                 <Link href={'https://discord.com'}>
-                    <div className='absolute right-5 top-5 z-20 cursor-pointer'>
+                    <div className='absolute right-5 top-5 z-20 cursor-pointer sm:block hidden'>
                         <FaDiscord size={40} />
                     </div>
                 </Link>
@@ -66,7 +66,7 @@ export default function Page({ tokenId, lastTokenId }: props) {
                 {/* Card */}
 
                 <VitalikHeader />
-                <div className='z-0 lg:px-12 xl:px-72  top-0 flex gap-24 justify-center items-center h-screen w-screen absolute ' style={{ minHeight: '850px' }}>
+                <div className='z-0 lg:px-12 xl:px-72  top-0 flex gap-24 justify-center items-center h-screen w-screen absolute ' style={{ minHeight: '700px' }}>
                     {/* <Deck /> */}
                     <ButerinCard tokenId={tokenId} reload={load} setLoaded={setLoadem} lastTokenId={lastTokenId}></ButerinCard>
 

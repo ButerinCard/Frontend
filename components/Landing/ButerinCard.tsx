@@ -84,7 +84,6 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
     }
     return (
         <div className='flex justify-end mb-20'>
-
             <div className='relative'>
                 <div className='hover:-translate-y-1 transition-transform '>
                     <div className={`transition-all ease-linear duration-300 select-none relative`}>
@@ -100,7 +99,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
                     </div>
                 </div>
 
-                <div className="absolute w-full mt-7 -translate-x-7" >
+                <div className="absolute w-full mt-7 sm:-translate-x-7" >
                     <div className="flex">
                         {parseInt(tokenId) > 0 && <div onClick={() => PushRouter('/cards/' + (parseInt(tokenId) ))}>
                             <div className='cursor-pointer'>
