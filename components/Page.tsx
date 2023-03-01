@@ -7,10 +7,9 @@ import VitalikHeader from '../components/Landing/VitalikHeader';
 import { execute } from '../.graphclient';
 import ButerinCard from './Landing/ButerinCard';
 import { FaDiscord } from 'react-icons/fa';
-
 import Link from 'next/link';
 import About from './About/About';
-import MintButton from './Landing/MintButton';
+import { useRouter } from 'next/router';
 interface MintedCard {
     dateMinted: string,
     id: string,
@@ -26,18 +25,24 @@ query GetCards($id: ID!) {
 interface props {
     tokenId: string
     lastTokenId: string
- 
+
 }
 
 export default function Page({ tokenId, lastTokenId }: props) {
     const [load, setLoad] = useState(false);
     const [mintedCards, setMintedCards] = useState<MintedCard[]>([]);
+    const router = useRouter();
 
     useEffect(() => {
         execute(query, { id: '0' }).then((r: any) => {
             setMintedCards(r.data.cards as MintedCard[]);
         }).catch((e: any) => console.log(e));
     }, []);
+    if (router) {
+        if (parseInt(tokenId) > parseInt(lastTokenId) && lastTokenId !== '-1') {
+            router.push('/cards/' + lastTokenId, undefined, {})
+        }
+    }
 
     useEffect(() => {
         setLoad(false);
@@ -45,6 +50,7 @@ export default function Page({ tokenId, lastTokenId }: props) {
     function setLoadem() {
         setLoad(true);
     }
+
     return (
         <div className='overflow-x-hidden'>
             <main className='relative overflow-y-auto h-screen overflow-x-hidden drop-shadow-lg' style={{ minHeight: '850px' }}>
@@ -63,12 +69,12 @@ export default function Page({ tokenId, lastTokenId }: props) {
                 <div className='z-0 lg:px-12 xl:px-72  top-0 flex gap-24 justify-center items-center h-screen w-screen absolute ' style={{ minHeight: '850px' }}>
                     {/* <Deck /> */}
                     <ButerinCard tokenId={tokenId} reload={load} setLoaded={setLoadem} lastTokenId={lastTokenId}></ButerinCard>
-                
+
                     <Miners />
                 </div>
             </main>
 
-            <About/> 
+            <About />
 
         </div>
     )

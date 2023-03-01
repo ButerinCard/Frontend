@@ -13,7 +13,7 @@ import Link from 'next/link';
 import NextCard from './Card/NextCard';
 import PrevCard from './Card/PrevCard';
 import LoaderCard from './Card/LoaderCard';
-import  { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 interface Props {
     tokenId: string
     reload: boolean
@@ -40,7 +40,10 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
       }
     }
     `
-    const router = useRouter(); 
+    const router = useRouter();
+    if (Number.isNaN(parseInt(tokenId)) && lastTokenId !== '-1') {
+        router.push('/cards/' + lastTokenId, undefined)
+    }
     useEffect(() => {
         if (!reload) {
             setParams(undefined);
@@ -95,7 +98,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
 
                             {params && <NextCard display={display} params={params} />}
                             {params && <PrevCard display={display} params={params} />}
-                            {backCards}
+                            {(parseInt(lastTokenId) < parseInt(tokenId) && lastTokenId !== '-1') && backCards}
                         </div>
 
                         {/* <Image src={card1} className='-translate-x-1 translate-y-1 absolute top-0 ' style={{ zIndex: '-1', width: '300px', height: '420px' }} alt={''}></Image>
@@ -151,7 +154,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
 }
 
 function FormatDate(timestamp: number | undefined) {
-    if(!timestamp) {
+    if (!timestamp) {
         return ''
     }
     let d = new Date(timestamp);
