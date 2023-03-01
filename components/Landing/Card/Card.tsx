@@ -3,18 +3,18 @@ import DescriptionText from './DescriptionText';
 import Defs from './Defs/Defs';
 import { fidenzaPalette } from './helpers';
 import useCardProvider from '../../../libs/hooks/card';
+import { CardParams } from '../../../libs/types';
 
 
 // 
-export default function Card({ }) {
+
+export default function Card({tokenIdInPhase, colorId, quoteId, phaseId, }: CardParams) {
  
-
-
     let patternId = 0;
     const url = '/jpegs/Buterin042.jpg';
     const kiloBytes = 'abc';
-    const tokenIdWithinPhase = 1;
-    let colorId = 5;
+    // const tokenIdWithinPhase = 1;
+    
     const subTitleText = 'tesrfds';
 
     return (
@@ -33,7 +33,7 @@ export default function Card({ }) {
                 <defs>
                     <image href={url} id="vitalikJPEG" x="10" y="16.82842712475" width="80" />
                 </defs>
-                <Defs colorId={colorId} />
+                <Defs colorId={parseInt(colorId)} />
 
 
                 <rect width="100" height="140" rx="5" fill="black" />
@@ -64,7 +64,7 @@ export default function Card({ }) {
                     />
                 </g>
                 <g>
-                    <use href="#titlePath" filter="url('#glow')" fill={fidenzaPalette[colorId]} />
+                    <use href="#titlePath" filter="url('#glow')" fill={fidenzaPalette[parseInt(colorId)]} />
                     <use href="#titlePath" fill="white" opacity=".9" />
                     <g width="100" height="140" clipPath="url('#titleClip')">
                         <g filter="url('#bevel')">
@@ -92,7 +92,7 @@ export default function Card({ }) {
                             fontSize="1.2em"
                             fontWeight="bold"
                             textAnchor="end"
-                        >{tokenIdWithinPhase + 1}</text>
+                        >{tokenIdInPhase + 1}</text>
                     </g>
                     <circle cx="87" cy="11.3" r="2.5" fill="white" opacity=".9" filter="url('#glow')" />
                     <use id="eth_title" href="#eth_diamond" transform="translate(87 9) scale(.0014 .0014)" />
@@ -119,7 +119,7 @@ export default function Card({ }) {
                 </g>
 
                 <g>
-                    <use href="#subtitlePath" filter="url('#glow')" fill={fidenzaPalette[colorId]} />
+                    <use href="#subtitlePath" filter="url('#glow')" fill={fidenzaPalette[parseInt(colorId)]} />
                     <use href="#subtitlePath" fill="white" opacity=".9" />
                     <g width="100" height="140" clipPath="url('#subtitleClip')">
                         <g filter="url('#bevel')">
@@ -135,7 +135,7 @@ export default function Card({ }) {
                     <use
 
                         href="#descriptionPath"
-                        fill={fidenzaPalette[colorId]}
+                        fill={fidenzaPalette[parseInt(colorId)]}
                         clipPath="url('#descriptionWithoutCardNumberClip')"
                     />
                 </g>
@@ -153,7 +153,7 @@ export default function Card({ }) {
                     <g filter="url('#glow')">
                         <use
 
-                            fill={fidenzaPalette[colorId]}
+                            fill={fidenzaPalette[parseInt(colorId)]}
                             href="#descriptionPath"
                             clipPath="url('#descriptionWithCardNumberClip')"
                         />

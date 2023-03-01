@@ -28,7 +28,7 @@ export default function Card() {
 
     const tokenId = slug as string;
     return (
-        <Page tokenId={tokenId} prev={false} />
+        <Page tokenId={tokenId} lastTokenId={lastTokenId} />
     )
 }
 

@@ -24,10 +24,11 @@ query GetCards($id: ID!) {
 `
 interface props {
     tokenId: string
-    prev: boolean
+    lastTokenId: string
+ 
 }
 
-export default function Page({ tokenId, prev }: props) {
+export default function Page({ tokenId, lastTokenId }: props) {
     const [load, setLoad] = useState(false);
     const [mintedCards, setMintedCards] = useState<MintedCard[]>([]);
 
@@ -60,7 +61,7 @@ export default function Page({ tokenId, prev }: props) {
                 <VitalikHeader />
                 <div className='z-0 lg:px-12 xl:px-72  top-0 flex gap-24 justify-center items-center h-screen w-screen absolute ' style={{ minHeight: '850px' }}>
                     {/* <Deck /> */}
-                    <ButerinCard tokenId={tokenId} reload={load} setLoaded={setLoadem}></ButerinCard>
+                    <ButerinCard tokenId={tokenId} reload={load} setLoaded={setLoadem} lastTokenId={lastTokenId}></ButerinCard>
                     <Miners />
                 </div>
             </main>

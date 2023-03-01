@@ -16,10 +16,11 @@ import LoaderCard from './Card/LoaderCard';
 interface Props {
     tokenId: string
     reload: boolean
+    lastTokenId: string
     setLoaded: () => void;
 }
 
-export default function ButerinCard({ tokenId, reload, setLoaded }: Props) {
+export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }: Props) {
     const [params, setParams] = useState<CardParams | undefined>()
     const [display, setDisplay] = useState(false)
     const [leave, setLeave] = useState(false);
@@ -47,10 +48,13 @@ export default function ButerinCard({ tokenId, reload, setLoaded }: Props) {
         if (!tokenId)
             return;
         execute(query, { id: tokenId }).then(r => {
-            const param = r.data.cards[0];
-            const params = { ...param, tokenId: 1 }
-            setLoaded();
-            setParams(params);
+            if (r.data) {
+                const param = r.data.cards[0];
+                const params = { ...param, tokenId: 1 }
+                setLoaded();
+                setParams(params);
+            }
+
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tokenId])
@@ -65,11 +69,13 @@ export default function ButerinCard({ tokenId, reload, setLoaded }: Props) {
         }
     }, [params])
     let backCards = [];
+    console.log(lastTokenId, tokenId);
     for (var i = 0; i < 9; i++) {
-        let zIndex = `-${i+1}`
-        if(parseInt(tokenId) > i)
+        let zIndex = `-${i + 1}`
+        if (parseInt(tokenId) > i)
             backCards.push(<Image key={i} src={card1} className={`-translate-x-${i} translate-y-${i} absolute top-0`} style={{ zIndex, width: '300px', height: '420px' }} alt={''}></Image>)
     }
+
     return (
         <div className='flex justify-end mb-20'>
 
@@ -80,12 +86,14 @@ export default function ButerinCard({ tokenId, reload, setLoaded }: Props) {
                         {/* <Image loading={'eager'} className={`w-56 lg:w-64 xl:w-72 2xl:w-96 `} src={Card1} alt={''}></Image> */}
                         {/* Second Card */}
                         {/* <Image loading={'eager'} className={`w-56 lg:w-64 xl:w-72 2xl:w-96 absolute top-0 left-0 z-30 `} src={Card1} alt={''}></Image> */}
-                        <div style={{width:'300px', height:'420px'}}  onClick={() => { setParams(undefined) }}>
-                            <NextCard display={display} />
-                            <PrevCard display={display} />
-                            <LoaderCard/>
+                        <LoaderCard />
+                        <div style={{ width: '300px', height: '420px' }} >
+
+                            {params && <NextCard display={display} params={params} />}
+                            {params && <PrevCard display={display} params={params} />}
+                            {/* {backCards} */}
                         </div>
-                        {backCards}
+
                         {/* <Image src={card1} className='-translate-x-1 translate-y-1 absolute top-0 ' style={{ zIndex: '-1', width: '300px', height: '420px' }} alt={''}></Image>
                         <Image src={card1} className='-translate-x-2 translate-y-2 absolute top-0 ' style={{ zIndex: '-2', width: '300px', height: '420px' }} alt={''}></Image>
                         <Image src={card1} className='-translate-x-3 translate-y-3 absolute top-0 ' style={{ zIndex: '-3', width: '300px', height: '420px' }} alt={''}></Image>
@@ -97,7 +105,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded }: Props) {
 
                 <div className="absolute w-full mt-7 -translate-x-7" >
                     <div className="flex">
-                        {parseInt(tokenId) > 0 && <Link href={'/cards/' + (parseInt(tokenId) - 1) + "?prev=true"}>
+                        {parseInt(tokenId) > 0 && <Link href={'/cards/' + (parseInt(tokenId) - 1)}>
                             <div className='cursor-pointer'>
                                 <Image src={leftArrow} alt={''}></Image>
                             </div>
@@ -105,19 +113,25 @@ export default function ButerinCard({ tokenId, reload, setLoaded }: Props) {
                         {parseInt(tokenId) === 0 && <div className='cursor-not-allowed opacity-50'>
                             <Image src={leftArrow} alt={''}></Image>
                         </div>}
-                        <Link href={'/cards/' + (parseInt(tokenId) + 1)}>
-                            <div className='cursor-pointer'>
-                                <Image src={rightArrow} alt={''}></Image>
-                            </div>
-                        </Link>
+                        {parseInt(lastTokenId) <= parseInt(tokenId) && <div className='cursor-not-allowed opacity-50'>
+                            <Image src={rightArrow} alt={''}></Image>
+                        </div>}
+                        {
+                            parseInt(lastTokenId) > parseInt(tokenId) && <Link href={'/cards/' + (parseInt(tokenId) + 1)}>
+                                <div className='cursor-pointer'>
+                                    <Image src={rightArrow} alt={''}></Image>
+                                </div>
+                            </Link>
+                        }
+
                         <div>
-                            {params?.miner && <div className='ml-4 font-plex  lg:text-sm select-none ' style={{fontSize:'12px'}}>
+                            {params?.miner && <div className='ml-4 font-plex  lg:text-sm select-none ' style={{ fontSize: '12px' }}>
                                 <h1 className='leading-4'>Card: 456 / 2015</h1>
                                 <h1 className='leading-4'>Minted: January 02, 2023</h1>
                                 <h1 className='leading-4'>Contributor: {condenseAddress(params?.miner)}</h1>
                             </div>}
                             {!params?.miner &&
-                                <div className='flex justify-center items-center  animate-spin w-44' style={{height:'48px'}}>
+                                <div className='flex justify-center items-center  animate-spin w-44' style={{ height: '48px' }}>
                                     <RiLoader4Line size={30} />
                                 </div>}
 

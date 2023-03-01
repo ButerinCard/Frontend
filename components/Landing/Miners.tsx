@@ -3,6 +3,7 @@ import LeaderBoardEntry from './LeaderBoardEntry'
 import { TopMinersDocument, execute, GetHandDocument } from '../../.graphclient'
 import useWeb3Provider from '../../libs/hooks/web3'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
+import HandEntry from './HandEntry'
 interface Miner {
   id: string,
   kiloBytes: string
@@ -10,6 +11,8 @@ interface Miner {
 interface Hand {
   id: string,
   miner: string
+  kiloBytes: string, 
+  dateMined: string
 }
 
 enum LeaderBoardType {
@@ -19,21 +22,25 @@ enum LeaderBoardType {
 
 
 export default function Miners() {
-  const {  address } = useWeb3Provider()
+  const { address } = useWeb3Provider()
   const [type, setType] = useState<LeaderBoardType>(LeaderBoardType.miners)
   const [miners, setMiners] = useState<Miner[]>([]);
   const [hand, setHand] = useState<Hand[]>([])
+  console.log(hand); 
   useEffect(() => {
     execute(TopMinersDocument, {}).then((r) => {
-      setMiners(r.data.miners);
+      if (r.data)
+        setMiners(r.data.miners);
     })
     if (address) {
-      const APIURL = 'https://api.studio.thegraph.com/query/41656/buterincardsgoerli/v0.1.5'
+      const APIURL = 'https://api.studio.thegraph.com/query/41656/buterincardsgoerli/v0.1.6'
       const tokensQuery = `
         query($user: String) {
           cards(filter: {miners_contains: $user}) {
             id
             miner
+            dateMined
+            kiloBytes
           }
         }
       `
@@ -49,7 +56,7 @@ export default function Miners() {
             user: address
           }
         })
-        .then((data) => {setHand(data.data.cards)})
+        .then((data) => { setHand(data.data.cards) })
         .catch((err) => {
           console.log('Error fetching data: ', err)
         })
@@ -69,10 +76,10 @@ export default function Miners() {
 
         <div className=' py-1 px-4 rounded-md md:w-80 md:h-80   xl:w-120 xl:h-116 bg-black bg-opacity-5 shadow-lg' >
           {type === LeaderBoardType.miners && miners.map((m, i) => {
-            return <LeaderBoardEntry key={i + m.id} place={(i + 1).toString()} kilobytes={m.kiloBytes} address={m.id} />
+            return <LeaderBoardEntry key={i + m.id} place={(i + 1).toString()} kilobytes={parseInt(m.kiloBytes) / 1000} address={m.id} />
           })}
           {type === LeaderBoardType.hand && hand.map((m, i) => {
-            return <LeaderBoardEntry key={i + m.id} place={(i + 1).toString()} kilobytes={m.miner} address={m.id} />
+            return <HandEntry key={i + m.id} tokenId={m.id} kilobytes={m.kiloBytes} date={m.dateMined} />
           })}
         </div>
       </div>

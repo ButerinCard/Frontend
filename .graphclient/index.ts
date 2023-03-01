@@ -693,7 +693,7 @@ const buterinCardsGoerliTransforms = [];
 const additionalTypeDefs = [] as any[];
 const buterinCardsGoerliHandler = new GraphqlHandler({
               name: "ButerinCardsGoerli",
-              config: {"endpoint":"https://api.studio.thegraph.com/query/41656/buterincardsgoerli/v0.1.5"},
+              config: {"endpoint":"https://api.studio.thegraph.com/query/41656/buterincardsgoerli/v0.1.6"},
               baseDir,
               cache,
               pubsub,

@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div>
-      <Page tokenId={tokenId} prev={false}  />
+      <Page tokenId={tokenId} lastTokenId={tokenId} />
     </div>
 
   )
