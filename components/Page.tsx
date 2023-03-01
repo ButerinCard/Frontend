@@ -1,15 +1,15 @@
 import React from 'react'
 import Image from 'next/image'
 import Graphic from '../public/images/graphic2.png'
-import background from '../public/images/background.png'
 import { useEffect, useState } from 'react';
-import { ImSpinner8 } from 'react-icons/Im'
 import Miners from '../components/Landing/Miners';
 import VitalikHeader from '../components/Landing/VitalikHeader';
 import { execute } from '../.graphclient';
 import ButerinCard from './Landing/ButerinCard';
 import { FaDiscord } from 'react-icons/fa';
+
 import Link from 'next/link';
+import About from './About/About';
 interface MintedCard {
     dateMinted: string,
     id: string,
@@ -66,34 +66,7 @@ export default function Page({ tokenId, lastTokenId }: props) {
                 </div>
             </main>
 
-            {/* About Sections */}
-            <div className='font-PS2 py-10' style={{ backgroundImage: `url(${background.src})` }}>
-                <section className='bg-transparent'>
-                    <div className='text-black flex justify-center'>
-                        <ImSpinner8 size={30} className='animate-spin' />
-                    </div>
-
-                    <h1 className='text-center' >About</h1>
-                    <div className='rounded-lg my-10 mx-10 bg-black bg-opacity-5' style={{ height: '433px' }}>
-
-                    </div>
-                </section>
-
-                <section className='bg-transparent'>
-                    <h1 className='text-center' >About</h1>
-                    <div className='rounded-lg my-10 mx-10 bg-black bg-opacity-5' style={{ height: '433px' }}>
-
-                    </div>
-                </section>
-
-                <section className='bg-transparent'>
-                    <h1 className='text-center' >About</h1>
-                    <div className='rounded-lg my-10 mx-10 bg-black bg-opacity-5' style={{ height: '433px' }}>
-
-                    </div>
-                </section>
-
-            </div>
+            <About/> 
 
         </div>
     )

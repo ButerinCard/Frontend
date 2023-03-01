@@ -91,7 +91,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
 
                             {params && <NextCard display={display} params={params} />}
                             {params && <PrevCard display={display} params={params} />}
-                            {/* {backCards} */}
+                            {backCards}
                         </div>
 
                         {/* <Image src={card1} className='-translate-x-1 translate-y-1 absolute top-0 ' style={{ zIndex: '-1', width: '300px', height: '420px' }} alt={''}></Image>

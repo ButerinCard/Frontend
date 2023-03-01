@@ -26,12 +26,26 @@ export default function MintButton() {
       setColors(arrCopy);
     }, 300)
   }, [colors])
-
+  const properChainId = 5
   async function mint() {
     try {
       if (!web3Provider || !inputs)
         return;
-      const Contract = new ethers.Contract('0xF25E991bC9564903daa08d75EA8B2b848A2F6058', artifact.abi, web3Provider.getSigner());
+      if (web3Provider.network.chainId !== properChainId) {
+          (window as any).ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{
+              chainId: '0x5',
+              // nativeCurrency: {
+              //   name: "Hardhat",
+              //   symbol: "GO",
+              //   decimals: 18
+              // }
+            }]
+          });
+          return;
+        }
+      const Contract = new ethers.Contract('0x9361AA1c97e0c66B9E1e17c7F3cC19Bd75771359', artifact.abi, web3Provider.getSigner());
       const chunks = (inputs as inputsData).miningInputs as miningChunk[]
       const rawTotalSupply = await Contract.totalSupply();
       const totalSupply = rawTotalSupply.toString();
