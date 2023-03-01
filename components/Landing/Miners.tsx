@@ -11,7 +11,7 @@ interface Miner {
 interface Hand {
   id: string,
   miner: string
-  kiloBytes: string, 
+  kiloBytes: string,
   dateMined: string
 }
 
@@ -26,13 +26,13 @@ export default function Miners() {
   const [type, setType] = useState<LeaderBoardType>(LeaderBoardType.miners)
   const [miners, setMiners] = useState<Miner[]>([]);
   const [hand, setHand] = useState<Hand[]>([])
-  console.log(hand); 
+  console.log(hand);
   useEffect(() => {
     execute(TopMinersDocument, {}).then((r) => {
       if (r.data)
         setMiners(r.data.miners);
     })
-    console.log(address); 
+    console.log(address);
     if (address) {
       const APIURL = 'https://api.studio.thegraph.com/query/41656/buterincardsgoerli/v0.1.6'
       const tokensQuery = `
@@ -82,6 +82,9 @@ export default function Miners() {
           {type === LeaderBoardType.hand && hand.map((m, i) => {
             return <HandEntry key={i + m.id} tokenId={m.id} kilobytes={m.kiloBytes} date={m.dateMined} />
           })}
+          {(type === LeaderBoardType.hand && hand.length < 1) && <div className='flex mt-4 justify-center font-PS2 text-xs text-normal opacity-70'>
+            <h1 >Your hand is empty!</h1>
+          </div>}
         </div>
       </div>
     </div>)
