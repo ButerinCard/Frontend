@@ -26,7 +26,7 @@ export default function Card() {
     }, [prevQ, setPrev])
 
 
-    const tokenId = slug as string;
+    const tokenId = (parseInt((slug as string)) - 1 ).toString() as string;
     return (
         <Page tokenId={tokenId} lastTokenId={lastTokenId} />
     )

@@ -59,7 +59,6 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
                 setLoaded();
                 setParams(params);
             }
-
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tokenId])
@@ -89,10 +88,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
             <div className='relative'>
                 <div className='hover:-translate-y-1 transition-transform '>
                     <div className={`transition-all ease-linear duration-300 select-none relative`}>
-                        {/* Top of Deck */}
-                        {/* <Image loading={'eager'} className={`w-56 lg:w-64 xl:w-72 2xl:w-96 `} src={Card1} alt={''}></Image> */}
-                        {/* Second Card */}
-                        {/* <Image loading={'eager'} className={`w-56 lg:w-64 xl:w-72 2xl:w-96 absolute top-0 left-0 z-30 `} src={Card1} alt={''}></Image> */}
+                    
                         <LoaderCard />
                         <div style={{ width: '300px', height: '420px' }} >
 
@@ -101,18 +97,12 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
                             {(parseInt(lastTokenId) < parseInt(tokenId) && lastTokenId !== '-1') && backCards}
                         </div>
 
-                        {/* <Image src={card1} className='-translate-x-1 translate-y-1 absolute top-0 ' style={{ zIndex: '-1', width: '300px', height: '420px' }} alt={''}></Image>
-                        <Image src={card1} className='-translate-x-2 translate-y-2 absolute top-0 ' style={{ zIndex: '-2', width: '300px', height: '420px' }} alt={''}></Image>
-                        <Image src={card1} className='-translate-x-3 translate-y-3 absolute top-0 ' style={{ zIndex: '-3', width: '300px', height: '420px' }} alt={''}></Image>
-                        <Image src={card1} className='-translate-x-4 translate-y-4 absolute top-0 ' style={{ zIndex: '-4', width: '300px', height: '420px' }} alt={''}></Image>
-                        <Image src={card1} className='-translate-x-5 translate-y-5 absolute top-0 ' style={{ zIndex: '-5', width: '300px', height: '420px' }} alt={''}></Image>
-                        <Image src={card1} className='-translate-x-6 translate-y-6 absolute top-0 ' style={{ zIndex: '-6', width: '300px', height: '420px' }} alt={''}></Image> */}
                     </div>
                 </div>
 
                 <div className="absolute w-full mt-7 -translate-x-7" >
                     <div className="flex">
-                        {parseInt(tokenId) > 0 && <div onClick={() => PushRouter('/cards/' + (parseInt(tokenId) - 1))}>
+                        {parseInt(tokenId) > 0 && <div onClick={() => PushRouter('/cards/' + (parseInt(tokenId) ))}>
                             <div className='cursor-pointer'>
                                 <Image src={leftArrow} alt={''}></Image>
                             </div>
@@ -124,7 +114,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
                             <Image src={rightArrow} alt={''}></Image>
                         </div>}
                         {
-                            parseInt(lastTokenId) > parseInt(tokenId) && <div onClick={() => PushRouter('/cards/' + (parseInt(tokenId) + 1))}>
+                            parseInt(lastTokenId) > parseInt(tokenId) && <div onClick={() => PushRouter('/cards/' + (parseInt(tokenId) + 2))}>
                                 <div className='cursor-pointer'>
                                     <Image src={rightArrow} alt={''}></Image>
                                 </div>
