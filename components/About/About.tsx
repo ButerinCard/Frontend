@@ -16,7 +16,7 @@ export default function About() {
                     <h1 className='text-center' >About</h1>
                     <div className='rounded-lg relative my-12 2xl:mx-80 bg-black bg-opacity-5 flex justify-center py-5'>
 
-                        <div className={`w-1/3 h-44  transition-opacity `}>
+                        {/* <div className={`w-1/3 h-44  transition-opacity `}>
                             <div className={`flex hover:opacity-100 ${pic ? 'opacity-100' : 'opacity-0'}`}>
                                 <div className={`pl-10 mt-28`} style={{ fontSize: '10px' }}>
                                     <p >An AI generated image from Vitalik with many crypto references in the background, including DeFi, NFTs and others</p>
@@ -25,32 +25,47 @@ export default function About() {
                                 </div>
                                 <h1 className='mt-28 whitespace-nowrap'> -&gt; </h1>
                             </div>
-                            <div className={`flex hover:opacity-100 ${size ? 'opacity-100' : 'opacity-0'}`}>
-                                <div className={`pl-10 mt-28 `} style={{ fontSize: '10px' }}>
-                                    <p >An AI generated image from Vitalik with many crypto references in the background, including DeFi, NFTs and others</p>
-                                    <br />
-                                    <p>This image will go through different phases as it is uploaded onchain.</p>
-                                </div>
-                                <h1 className='mt-48 whitespace-nowrap'> -&gt; </h1>
-                            </div>
+                          
 
-                        </div>
+                        </div> */}
 
 
                         <div className="flex relative">
+
+                            <div className="absolute -left-96 bottom-0 w-96">
+                                <div className={`flex hover:opacity-100 ${size ? 'opacity-100' : 'opacity-0'}`}>
+                                    <div className={`pr-2 relative`} style={{ fontSize: '10px' }}>
+                                        <p >An AI generated image from Vitalik with many crypto references in the background, including DeFi, NFTs and others</p>
+                                        <br />
+                                        <p>This image will go through different phases as it is uploaded onchain.</p>
+                                    </div>
+
+                                    <h1 className='whitespace-nowrap absolute bottom-0 right-0'> -&gt; </h1>
+                                </div>
+                            </div>
+                            <div className="absolute -left-96 top-20 w-96 pr-5">
+                                <div className={`flex hover:opacity-100  ${pic ? 'opacity-100' : 'opacity-0'}`}>
+                                    <div className={`pr-2 relative `} style={{ fontSize: '10px' }}>
+                                        <p >An AI generated image from Vitalik with many crypto references in the background, including DeFi, NFTs and others</p>
+                                        <br />
+                                        <p>This image will go through different phases as it is uploaded onchain.</p>
+                                    </div>
+
+                                    <h1 className='whitespace-nowrap absolute bottom-0 right-0'> -&gt; </h1>
+                                </div>
+                            </div>
+
                             <div>
                                 <h2 className='font-mono mb-2'>(Hover over areas to learn more)</h2>
                                 <Image src={aboutCard} alt='About Card' width={300} height={420} />
-                                <div onMouseOver={() => setPhase(true)} onMouseOut={() => setPhase(false)} className="absolute h-10 w-full bg-red-400 bg-opacity-30 top-10"></div>
-                                <div onMouseOver={() => setPic(true)} onMouseOut={() => setPic(false)} className="absolute h-48 w-full bg-green-400 bg-opacity-30 top-20"></div>
-                                <div onMouseOver={() => setBody(true)} onMouseOut={() => setBody(false)} className="absolute h-32 w-full bg-opacity-30 bg-blue-400 bottom-10 "></div>
-                                <div onMouseOver={() => setSize(true)} onMouseOut={() => setSize(false)} className="absolute h-10 w-full bg-opacity-30 bg-red-400 bottom-1"></div>
+                                <div onMouseOver={() => setPhase(true)} onMouseOut={() => setPhase(false)} className="absolute h-10 w-full bg-opacity-30 top-10"></div>
+                                <div onMouseOver={() => setPic(true)} onMouseOut={() => setPic(false)} className="absolute h-48 w-full  bg-opacity-30 top-20"></div>
+                                <div onMouseOver={() => setBody(true)} onMouseOut={() => setBody(false)} className="absolute h-32 w-full bg-opacity-30 bottom-10 "></div>
+                                <div onMouseOver={() => setSize(true)} onMouseOut={() => setSize(false)} className="absolute h-10 w-full bg-opacity-30  bottom-1"></div>
                             </div>
                         </div>
 
-                        <div className='flex w-1/3'>
 
-                        </div>
 
                     </div>
                 </section>
