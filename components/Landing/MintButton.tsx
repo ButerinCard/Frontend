@@ -77,7 +77,7 @@ export default function MintButton() {
           ' font-semibold text-lg  lg:text-xl rounded-md'}   >
 
           <div className='absolute h-full w-full flex -z-10 top-0  grid-rows-6 ' style={{filter:'blur(8px)'}} >
-            <Image src={rainbow} alt={''}></Image>
+           <Rainbow/>
           </div>
           
           <h1 className='font-medium' style={{ fontSize: '24px' }}>{address ? "Mine" : "Connect"}</h1>
@@ -86,3 +86,7 @@ export default function MintButton() {
     </div>
   )
 }
+
+const Rainbow = React.memo(function Rainbow() {
+  return <Image src={rainbow} alt={''}></Image>
+})

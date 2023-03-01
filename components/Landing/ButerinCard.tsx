@@ -126,8 +126,8 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
 
                         <div>
                             {params?.miner && <div className='ml-4 font-plex  lg:text-sm select-none ' style={{ fontSize: '12px' }}>
-                                <h1 className='leading-4'>Card: 456 / 2015</h1>
-                                <h1 className='leading-4'>Minted: January 02, 2023</h1>
+                                <h1 className='leading-4'>Card: {parseInt(params.id) + 1} / 2015</h1>
+                                <h1 className='leading-4'>{FormatDate(parseInt(params?.dateMined) * 1000)}</h1>
                                 <h1 className='leading-4'>Contributor: {condenseAddress(params?.miner)}</h1>
                             </div>}
                             {!params?.miner &&
@@ -146,6 +146,17 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
     )
 }
 
+function FormatDate(timestamp: number | undefined) {
+    if(!timestamp) {
+        return ''
+    }
+    let d = new Date(timestamp);
+    let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+    let mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(d);
+    let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+    console.log(`${da}-${mo}-${ye}`);
+    return `Minted: ${mo} ${da}, ${ye}`
+}
 
 // translate-x-1 translate-y-1
 // VM15476:2 -translate-x-2 translate-y-2

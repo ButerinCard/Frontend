@@ -10,6 +10,7 @@ import { FaDiscord } from 'react-icons/fa';
 
 import Link from 'next/link';
 import About from './About/About';
+import MintButton from './Landing/MintButton';
 interface MintedCard {
     dateMinted: string,
     id: string,
@@ -62,6 +63,7 @@ export default function Page({ tokenId, lastTokenId }: props) {
                 <div className='z-0 lg:px-12 xl:px-72  top-0 flex gap-24 justify-center items-center h-screen w-screen absolute ' style={{ minHeight: '850px' }}>
                     {/* <Deck /> */}
                     <ButerinCard tokenId={tokenId} reload={load} setLoaded={setLoadem} lastTokenId={lastTokenId}></ButerinCard>
+                
                     <Miners />
                 </div>
             </main>
