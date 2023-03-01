@@ -13,7 +13,7 @@ export default function About() {
 
                     <h1 className='text-center' >About</h1>
 
-                    <div className='rounded-lg my-10 mx-80 bg-black bg-opacity-5 flex flex-col items-center py-5' >
+                    <div className='rounded-lg my-10 2xl:mx-80 bg-black bg-opacity-5 flex flex-col items-center py-5' >
                         <h2 className='font-mono mt-2 mb-2'>(Hover over areas to learn more)</h2>
                         <Image src={aboutCard} alt='About Card' width={300} height={420} />
                     </div>
@@ -21,7 +21,7 @@ export default function About() {
 
                 <section className='bg-transparent'>
                     <h1 className='text-center' >How does JPEG mining work?</h1>
-                    <div className='rounded-lg my-10 mx-80 bg-black bg-opacity-5 font-mono py-10 px-52 text-lg ' style={{ height: '433px' }}>
+                    <div className='rounded-lg my-10 2xl:mx-80 bg-black bg-opacity-5 font-mono py-10 px-8 lg:px-52 text-lg ' >
                         <p>This is an NFT, acting as a homage to Vitalik. In total there will be 2015 cards.</p>
                         <br></br>
                        

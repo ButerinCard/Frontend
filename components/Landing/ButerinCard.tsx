@@ -13,6 +13,7 @@ import Link from 'next/link';
 import NextCard from './Card/NextCard';
 import PrevCard from './Card/PrevCard';
 import LoaderCard from './Card/LoaderCard';
+import  { useRouter } from 'next/router';
 interface Props {
     tokenId: string
     reload: boolean
@@ -39,6 +40,7 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
       }
     }
     `
+    const router = useRouter(); 
     useEffect(() => {
         if (!reload) {
             setParams(undefined);
@@ -75,7 +77,9 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
         if (parseInt(tokenId) > i)
             backCards.push(<Image key={i} src={card1} className={`-translate-x-${i} translate-y-${i} absolute top-0`} style={{ zIndex, width: '300px', height: '420px' }} alt={''}></Image>)
     }
-
+    function PushRouter(page: string) {
+        router.push(page, undefined, { scroll: false });
+    }
     return (
         <div className='flex justify-end mb-20'>
 
@@ -105,11 +109,11 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
 
                 <div className="absolute w-full mt-7 -translate-x-7" >
                     <div className="flex">
-                        {parseInt(tokenId) > 0 && <Link href={'/cards/' + (parseInt(tokenId) - 1)}>
+                        {parseInt(tokenId) > 0 && <div onClick={() => PushRouter('/cards/' + (parseInt(tokenId) - 1))}>
                             <div className='cursor-pointer'>
                                 <Image src={leftArrow} alt={''}></Image>
                             </div>
-                        </Link>}
+                        </div>}
                         {parseInt(tokenId) === 0 && <div className='cursor-not-allowed opacity-50'>
                             <Image src={leftArrow} alt={''}></Image>
                         </div>}
@@ -117,11 +121,11 @@ export default function ButerinCard({ tokenId, reload, setLoaded, lastTokenId }:
                             <Image src={rightArrow} alt={''}></Image>
                         </div>}
                         {
-                            parseInt(lastTokenId) > parseInt(tokenId) && <Link href={'/cards/' + (parseInt(tokenId) + 1)}>
+                            parseInt(lastTokenId) > parseInt(tokenId) && <div onClick={() => PushRouter('/cards/' + (parseInt(tokenId) + 1))}>
                                 <div className='cursor-pointer'>
                                     <Image src={rightArrow} alt={''}></Image>
                                 </div>
-                            </Link>
+                            </div>
                         }
 
                         <div>
